@@ -14,7 +14,6 @@ Cenario: GET todos os usuarios 200
     Criar Sessao
     GET Endpoint /usuarios
     Validar Status Code "200"
-    Validar Quantidade "${8}"
     Printar Conteudo Response
 
 Cenario: POST cadastrar usuario 201
@@ -45,21 +44,24 @@ Cenario: POST realizar login 200
 Cenario: POST criar produto 201
     [tags]      POSTPRODUTO
     Criar Sessao
+    Fazer Login e Armazenar Token
     POST Endpoint /produtos
+    Validar Status Code "201"
+
+Cenario: DELETE Excluir Produto 200
+    [tags]      DELETEPRODUTO
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar um Produto e Armazenar ID
+    DELETE Endpoint /produtos
+    Validar Status Code "200"
+
+Cenario: POST Criar Usuario de Massa Estatica 201
+    [tags]      POSTUSUARIOESTATICO
+    Criar Sessao
+    Criar Usuario Estatico Valido
     Validar Status Code "201"
 
 * Keywords *
 Criar Sessao
     Create Session          serverest           http://localhost:3000/
-
-Validar Status Code "${statuscode}"
-    Should Be True          ${response.status_code} == ${statuscode}
-
-Validar Quantidade "${quantidade}"
-    Should Be Equal         ${response.json()["quantidade"]}        ${quantidade}
-
-Validar Se Mensagem Contem "${palavra}"
-    Should Contain          ${response.json()["message"]}           ${palavra}
-
-Printar Conteudo Response
-    Log to console          Response: ${response.json()["usuarios"][1]["nome"]}

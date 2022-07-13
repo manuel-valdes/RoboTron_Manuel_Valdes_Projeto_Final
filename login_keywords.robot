@@ -11,3 +11,14 @@ POST Endpoint /login
     ${response}             POST On Session         serverest       /login          data=&{payload}
     Log to console          Response: ${response.content}
     Set Global Variable     ${response}
+
+Validar Login
+    Should Be Equal         ${response.json()["message"]}       Login realizado com sucesso
+    Should Not Be Empty     ${response.json()["authorization"]}
+
+Fazer Login e Armazenar Token
+    POST Endpoint /login
+    Validar Login
+    ${token_auth}           Set Variable            ${response.json()["authorization"]}
+    Log To Console          Token Salvo: ${token_auth}
+    Set Global Variable     ${token_auth}   
