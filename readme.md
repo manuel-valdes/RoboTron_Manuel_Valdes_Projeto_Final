@@ -38,27 +38,46 @@ Em teoria, você já está pronto para explorar tudo que o VSCode tem a oferecer
 
 Para instalar extensões no VSCode, simplesmente clique em sua respectiva aba (aquela dos quadradinhos, no lado esquerdo superior da tela) e utilize a barra de pesquisas para encontrar as seguintes extensões:
 
-    1. Robot Framework Intellisense - extensão que suporta o Robot no VSCode
+1. Robot Framework Intellisense - extensão que suporta o Robot no VSCode
 
-    2. Tabnine AI Autocomplete - completa expressões e funções comuns da linguagem de programação 
-    que você está usando
-    
-    3. Matherial Icon Theme - permite que apareça uma imagenzinha do lado do seu arquivo indicando 
-    de que tipo ele é (.py, .robot, .png, etc.)
+2. Tabnine AI Autocomplete - completa expressões e funções comuns da linguagem de programação que você está usando
+
+3. Matherial Icon Theme - permite que apareça uma imagenzinha do lado do seu arquivo indicando de que tipo ele é (.py, .robot, .png, etc.)
 
 Também recomendo que você procure algum tema que você goste na aba de extensões. No VSCode, os temas são paletas de cores que facilitam a visualização de diferentes componentes do código e da própria IDE. Claro, não é nada obrigatório (mas deixa tudo mais legal).
 
 ## Git<a name="git"></a>
 
-O Git é a principal tecnologia de versionamento do mercado. Através dele, equipes de dezenas de pessoas podem trabalhar no mesmo projeto de desenvolvimento sem gerar conflitos destrutivos ou perder informações e funcionalidades cruciais do sistema. O GitHub, site no qual nos encontramos neste momento, é basicamente uma plataforma de hospedagem de código que permite que, através de comandos Git, repositórios locais (aqueles que estão no seu computador) sejam armazenados de maneira remota, ou seja, na internet. 
+O Git é a principal tecnologia de versionamento do mercado. Através dele, equipes de dezenas de pessoas podem trabalhar no mesmo projeto de desenvolvimento sem gerar conflitos destrutivos ou perder informações e funcionalidades cruciais do sistema. O GitHub, site em que estamos neste momento, é basicamente uma plataforma de hospedagem de código que permite que, por meio de comandos Git, repositórios locais (aqueles que estão no seu computador) sejam armazenados de maneira remota, ou seja, na internet. 
   
 Para que isso seja possível, é necessário que o Git esteja instalado na sua máquina. Os primeiros passos são simples: 
 
-    1. Acesse o [site oficial do Git](https://git-scm.com/)
-    2. Clique em "Download for Windows"
-    3. Execute o arquivo 
-    4. Siga todos os passos indicados no instalador 
+1. Acesse o [site oficial do Git](https://git-scm.com/)
+2. Clique em "Download for Windows"
+3. Execute o arquivo 
+4. Siga todos os passos indicados no instalador 
   
-OBS: O instalador passa por diversas páginas, mas as principais opções são padronizadas e já estão marcadas. Clique "Next" em tudo.
+OBS: O instalador passa por um monte de páginas, mas as principais opções são padronizadas e já estão marcadas. Clique "Next" em tudo. 
+
+Uma das <i>features</i> que virá como resultado do processo de instalação é o "Git Bash", uma espécie de terminal do Git através do qual executaremos nossas ações. Abra o Git Bash e digite os seguintes comandos (aperte Enter depois de escrever o primeiro, só depois escreva o segundo):
+
+    git config --global user.name "Seu Nome"
+
+    git config --global user.email "seuemail@email.com"
+
+Esse é o jeito do Git de saber quem você é. Agora, se você fizer atualizações ou edições em algum projeto, seus commits (suas ações no repositório) serão identificados. Pronto, seu Git está praticamente configurado. Claro, a "graça" do negócio é poder interagir com repositórios remotos, ou seja, aqueles que estão na internet. Nesse caso, existem alguns passos a mais, mas eles também são bem simples: 
+
+1. Crie ou abra a pasta em que você deseja armazenar seu repositório
+2. Clique na área vazia da pasta com o botão direito
+3. Selecione "Git Bash Here"
+4. Execute o comando:
+
+        git init
+
+5. Em seguida, rode este comando para linkar o repositório local ao GitHub:
+
+        git remote add origin [url do repositório]
+
+Em relação ao Git, isso é basicamente tudo que você precisa saber. Um pouco mais para frente explicarei outro conceito/comando, o git clone
 
 </div>
