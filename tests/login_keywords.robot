@@ -1,5 +1,5 @@
 * Settings *
-Documentation           Keywords e variaveis para ações do endpoint de login
+Documentation               Keywords e variaveis para ações do endpoint de login
 
 * Variables *
 ${email_para_login}         fulano@qa.com
@@ -13,7 +13,7 @@ POST Endpoint /login
     Set Global Variable     ${response}
 
 Validar Login
-    Should Be Equal         ${response.json()["message"]}       Login realizado com sucesso
+    Should Be Equal         ${response.json()["message"]}                           Login realizado com sucesso
     Should Not Be Empty     ${response.json()["authorization"]}
 
 Fazer Login e Armazenar Token

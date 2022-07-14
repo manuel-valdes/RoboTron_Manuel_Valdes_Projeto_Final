@@ -1,13 +1,11 @@
 * Settings *
-Documentation           Keywords e variaveis para ações gerais
-Library                 OperatingSystem
-
-* Variables *
+Documentation       Keywords e variaveis para ações gerais
+Library             OperatingSystem
 
 
 * Keywords *
 Validar Status Code "${statuscode}"
-    Should Be True          ${response.status_code} == ${statuscode}
+    Should Be True                  ${response.status_code} == ${statuscode}
 
 Importar JSON Estatico
     [Arguments]     ${nome_arquivo}
