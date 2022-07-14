@@ -15,7 +15,7 @@ Ao longo dos próximos parágrafos, descreverei como fazer a instalação de tod
     - [Git](#git)
     - [Python](#python)
     - [Node.js](#node)
-    - [Robot](#robot)
+    - [Robot Framework](#robot)
 - [Baixando o repositório](#baixar-repositorio)
     - [Git Clone](#git-clone)
 - [Interagindo com os arquivos no VSCode](#arquivos-vscode)
@@ -96,7 +96,7 @@ Depois disso, clique em "Install Now" e siga todos os passos indicados no instal
 
         python --version
 
-Se a instalação correu bem, o cmd vai imprimir sua versão do Python (3.10.5) no console. Caso isso não aconteça e aparecer algum erro do tipo "python não é um comando reconhecido pelo sistema", você provavelmente não selecionou a opção de adicionar o Python ao PATH no processo de instalação (e olha que eu avisei!). Se for o caso, acompanhe os seguintes passos:
+Se a instalação correu bem, o cmd vai imprimir sua versão do Python (3.10.5) no console. Caso isso não aconteça e aparecer algum erro do tipo "python não é um comando reconhecido pelo sistema", você provavelmente não selecionou a opção de adicionar o Python ao Path no processo de instalação (e olha que eu avisei!). Se for o caso, acompanhe os seguintes passos:
 
 1. Aperte a tecla Windows + a tecla R. A seguinte janela deve aparecer: 
 
@@ -123,5 +123,18 @@ Se a instalação correu bem, o cmd vai imprimir sua versão do Python (3.10.5) 
 9. Dentro de "Variáveis de usuário", selecione "Path" e clique em editar
 10. Neste novo menu, clique em "Novo" e adicione o caminho das pastas que você copiou (CTRL + V)
 
+Pronto! Agora deve estar tudo certo. Novamente, rode o comando "python --version" no cmd. Se o erro persistir, verifique se você seguiu todos os passos corretamente e tente novamente.
+
+## Node.js<a name="node"></a>
+
+Lembra que um tempo atrás eu citei que algumas destas tecnologias simplesmente precisam estar na sua máquina e que, depois de instalá-las, não teríamos que nos preocupar muito com elas? Era exatamente ao Node.js que eu estava me referindo. Basicamente, o Node.js permite que códigos JavaScript rodem fora de um navegador web. Para nossos fins neste momento, isso é tudo que precisamos saber. Sua instalação também é extremamente simples. Acesse o [site oficial da ferramenta](https://nodejs.org/en/) e baixe a versão em que está escrito "Recommended for most users". Siga todos os passos indicados no instalador e pronto. 
+
+## Robot<a name="robot"></a>
+
+Chegamos na galinha dos ovos de ouro. Se você seguiu todos os passos até aqui corretamente, não devemos encontrar grandes dificuldades nesta etapa. Abra o cmd e digite o seguinte comando:
+
+        pip install robot framework
+                    
+O "pip" nada mais é do que o gerenciador de pacotes do Python. Frameworks e bibliotecas podem ser instalados através dele. Depois desse comando, digite "robot --version" (também no cmd) e aperte Enter. Se aparecer a versão do Robot, deu tudo certo. Caso apareça um erro como "robot não é um comando reconhecido pelo sistema", novamente, a questão precisa ser resolvida através do Path. Siga os passos indicados na seção de instalação do Python (a pasta é a mesma, Scripts, dentro de Python310).
 
 </div>
