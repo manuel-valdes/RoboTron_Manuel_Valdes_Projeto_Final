@@ -61,9 +61,9 @@ OBS: O instalador passa por um monte de páginas, mas as principais opções sã
 
 Uma das <i>features</i> que virá como resultado do processo de instalação é o "Git Bash", uma espécie de terminal do Git através do qual executaremos nossas ações. Abra o Git Bash e digite os seguintes comandos (aperte Enter depois de escrever o primeiro, só depois escreva o segundo):
 
-    git config --global user.name "Seu Nome"
+        git config --global user.name "Seu Nome"
 
-    git config --global user.email "seuemail@email.com"
+        git config --global user.email "seuemail@email.com"
 
 Esse é o jeito do Git de saber quem você é. Agora, se você fizer atualizações ou edições em algum projeto, seus commits (suas ações no repositório) serão identificados. Pronto, seu Git está praticamente configurado. Claro, a "graça" do negócio é poder interagir com repositórios remotos, ou seja, aqueles que estão na internet. Nesse caso, existem alguns passos a mais, mas eles também são bem simples: 
 
@@ -78,6 +78,50 @@ Esse é o jeito do Git de saber quem você é. Agora, se você fizer atualizaç�
 
         git remote add origin [url do repositório]
 
-Em relação ao Git, isso é basicamente tudo que você precisa saber. Um pouco mais para frente explicarei outro conceito/comando, o git clone
+Em relação ao Git, isso é basicamente tudo que você precisa saber. Um pouco mais para frente explicarei outro conceito/comando, o git clone. Ele permite que você, literalmente, clone um repositório remoto na sua máquina e interaja com ele localmente. Spoiler: é assim que você vai ter acesso aos arquivos deste repositório. 
+
+## Python<a name="python"></a>
+
+O Python é tão simples de instalar quanto o VSCode. Existe apenas um detalhe *muito* importante ao qual você deve prestar atenção. Para baixar o Python, entre no site [python.org](https://www.python.org/), vá para a aba de "Downloads" e baixe a última versão do Python (3.10.5) para Windows. Execute o instalador e siga todos os passos.
+  
+IMPORTANTE: tenha certeza de que a seguinte opção está marcada no momento da instalação:
+
+<div align=center> 
+
+![](https://github.com/manuel-valdes/RoboTron_Manuel_Valdes_Projeto_Final/blob/develop/images/install_python.png)
+
+</div>
+
+Depois disso, clique em "Install Now" e siga todos os passos indicados no instalador. Depois de terminar, abra o Prompt de Comando (digite cmd na barra de pesquisas do Windows e aperte Enter) e execute o seguinte código:
+
+        python --version
+
+Se a instalação correu bem, o cmd vai imprimir sua versão do Python (3.10.5) no console. Caso isso não aconteça e aparecer algum erro do tipo "python não é um comando reconhecido pelo sistema", você provavelmente não selecionou a opção de adicionar o Python ao PATH no processo de instalação (e olha que eu avisei!). Se for o caso, acompanhe os seguintes passos:
+
+1. Aperte a tecla Windows + a tecla R. A seguinte janela deve aparecer: 
+
+<div align=center> 
+
+![](https://github.com/manuel-valdes/RoboTron_Manuel_Valdes_Projeto_Final/blob/develop/images/windows_r.png)
+
+</div>
+
+2. No campo "Abrir" digite "%appdata%" (sem as aspas) e aperte Enter
+3. Procure a pasta Python na janela que abriu e clique nela
+4. Clique na pasta Python310 e, em seguida, em Scripts
+5. Copie o caminho das pastas (clique na barra da figura a seguir e aperte CTRL + C):
+
+<div align=center> 
+
+![](https://github.com/manuel-valdes/RoboTron_Manuel_Valdes_Projeto_Final/blob/develop/images/barra_scripts.png)
+
+</div>
+
+6. Com esse caminho copiado, pesquise "variáveis" na barra de pesquisa do Windows (canto inferior esquerdo)
+7. Clique em "Editar as variáveis de ambiente do sistema"
+8. Na nova janela, clique em "Avançado" e, em seguida, em "Variáveis de Ambiente..."
+9. Dentro de "Variáveis de usuário", selecione "Path" e clique em editar
+10. Neste novo menu, clique em "Novo" e adicione o caminho das pastas que você copiou (CTRL + V)
+
 
 </div>
