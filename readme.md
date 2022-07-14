@@ -39,8 +39,10 @@ Em teoria, você já está pronto para explorar tudo que o VSCode tem a oferecer
 Para instalar extensões no VSCode, simplesmente clique em sua respectiva aba (aquela dos quadradinhos, no lado esquerdo superior da tela) e utilize a barra de pesquisas para encontrar as seguintes extensões:
 
     1. Robot Framework Intellisense - extensão que suporta o Robot no VSCode
-    2. Tabnine AI Autocomplete - completa expressões e funções comuns da linguagem de programação que você está usando
-    3. Matherial Icon Theme - permite que apareça uma imagenzinha do lado do seu arquivo indicando de que tipo ele é (.py, .robot, .png, etc.)
+    2. Tabnine AI Autocomplete - completa expressões e funções comuns da linguagem de programação 
+    que você está usando
+    3. Matherial Icon Theme - permite que apareça uma imagenzinha do lado do seu arquivo indicando 
+    de que tipo ele é (.py, .robot, .png, etc.)
 
 Também recomendo que você procure algum tema que você goste na aba de extensões. No VSCode, os temas são paletas de cores que facilitam a visualização de diferentes componentes do código e da própria IDE. Claro, não é nada obrigatório (mas deixa tudo mais legal).
 
