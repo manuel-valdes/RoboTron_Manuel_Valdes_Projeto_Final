@@ -20,7 +20,7 @@ POST Endpoint /produtos
 PUT Endpoint /produtos
     &{header}               Create Dictionary       Authorization=${token_auth}
     ${payload}              Create Dictionary       nome=carro           preco=18000          descricao=fiat            quantidade=5 
-    ${response}             PUT On Session          serverest           /produtos/${id_produto}                         json=${payload}          headers=${header}                      
+    ${response}             PUT On Session          serverest           /produtos/${id_produto}                          json=${payload}          headers=${header}                      
     Log to console          Response: ${response.content}
     Set Global Variable     ${response}
 
