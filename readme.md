@@ -19,6 +19,7 @@ Ao longo dos próximos parágrafos, descreverei como fazer a instalação de tod
 - [Baixando o repositório](#baixar-repositorio)
 - [Interagindo com os arquivos no VSCode](#arquivos-vscode)
 - [Entendendo o Robot](#entendendo-robot)
+- [Mapa mental da ServeRest](#mapa-mental)
 - [Rodando os testes no cmd](#cmd)
 - [Ferramentas e extensões utilizadas](#ferramentas)
 - [Referências](#referencias)
@@ -190,6 +191,10 @@ Agora sim estamos prontos para rodar os arquivos Robot. Vale ressaltar que essa 
         robot -d ./reports -i POSTUSER base.robot
 
 A primeira parte, "robot -d ./reports" indica que estamos rodando um arquivo Robot e que queremos que os relatórios (log, output e report, arquivos descritivos padrões do framework) fiquem armazenados na pasta "reports". A segunda parte, "-i POSTUSER", indica que queremos rodar o cenário de teste que está relacionado com a tag POSTUSER. Por fim, o arquivo "base.robot", como mencionado anteriormente, é o arquivo principal através do qual todos os testes são executados. Dentre todas as palavras envolvidas nessa estrutura, a única que muda entre execuções é a tag. De resto, a estrutura é a mesma (a não ser que você queira rodar todos os testes simultaneamente, nesse caso, execute o mesmo comando sem a parte do "-i TAG". Porém, como já comentei, isso não seria interessante no contexto dos testes desenvolvidos para este repositório).
+
+# 🗺️ Mapa mental da ServeRest<a name="mapa-mental"></a>
+
+# 🔨 Ferramentas e extensões utilizadas<a name="ferramentas"></a>
 
 # 📚 Referências<a name="referencias"></a>
 
