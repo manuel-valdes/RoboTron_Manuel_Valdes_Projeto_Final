@@ -149,7 +149,7 @@ Na pasta que você escolheu para armazenar o repositório, clique no espaço vaz
 
 Caso você ainda não tenha validado seu login no GitHub dentro desse repositório local, é possível que apareça uma janela pedindo que você autentique seu login. Se você estiver logado no GitHub dentro do seu browser, basta clicar em "Sign in with your browser". Outra forma de trazer um repositório remoto para sua máquina é de, literalmente, baixá-lo. Para isso, entre no link do repositório no GitHub que você deseja baixar, aperte o botão "Code" e selecione a opção "Download ZIP".
 
-# 👨🏻‍💻 Interagindo com os arquivos no VSCode<a name="baixar-repositorio"></a>
+# 🔎 Interagindo com os arquivos no VSCode<a name="baixar-repositorio"></a>
 
 Agora que todos os arquivos e pastas do repositório estão na sua máquina, vamos abri-los através do VSCode para que seja possível visualizar o código de maneira mais estruturada.
 
