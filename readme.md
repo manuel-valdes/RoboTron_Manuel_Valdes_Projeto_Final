@@ -17,9 +17,9 @@ Ao longo dos próximos parágrafos, descreverei como fazer a instalação de tod
     - [Node.js](#node)
     - [Robot Framework](#robot)
 - [Baixando o repositório](#baixar-repositorio)
-    - [Git Clone](#git-clone)
 - [Interagindo com os arquivos no VSCode](#arquivos-vscode)
-- [Rodando os testes no CMD](#cmd)
+- [Entendendo o Robot](#entendendo-robot)
+- [Rodando os testes no cmd](#cmd)
 - [Ferramentas e extensões utilizadas](#ferramentas)
 - [Referências](#referencias)
 - [Agradecimentos](#agradecimentos)
@@ -45,6 +45,8 @@ Para instalar extensões no VSCode, simplesmente clique em sua respectiva aba (a
 3. Matherial Icon Theme - permite que apareça uma imagenzinha do lado do seu arquivo indicando de que tipo ele é (.py, .robot, .png, etc.)
 
 Também recomendo que você procure algum tema que você goste na aba de extensões. No VSCode, os temas são paletas de cores que facilitam a visualização de diferentes componentes do código e da própria IDE. Claro, não é nada obrigatório (mas deixa tudo mais legal).
+
+PS: O VSCode indicará que é necessário instalar a extensão do Python para o VSCode para que ele funcione corretamente. *NÃO* instale essa extensão. Ela acaba conflitando com a sua versão do Python e pode vir a gerar problemas de funcionamento do pip. Todos os nossos testes serão rodados no próprio cmd.
 
 ## Git<a name="git"></a>
 
@@ -136,5 +138,77 @@ Chegamos na galinha dos ovos de ouro. Se você seguiu todos os passos até aqui 
         pip install robot framework
                     
 O "pip" nada mais é do que o gerenciador de pacotes do Python. Frameworks e bibliotecas podem ser instalados através dele. Depois desse comando, digite "robot --version" (também no cmd) e aperte Enter. Se aparecer a versão do Robot, deu tudo certo. Caso apareça um erro como "robot não é um comando reconhecido pelo sistema", novamente, a questão precisa ser resolvida através do Path. Siga os passos indicados na seção de instalação do Python (a pasta é a mesma, Scripts, dentro de Python310).
+
+# 👨🏻‍💻 Baixando o repositório<a name="baixar-repositorio"></a>
+
+Agora que todas as ferramentas necessárias já estão presentes na sua máquina, podemos passar para a transferência do repositório para o seu sistema local. Lembra do "git clone"? O comando que eu falei que apresentaria um pouco mais para a frente. Pois bem, chegou sua hora. O "git clone" permite que você copie o repositório remoto completo para sua máquina com um único comando. Porém, antes de tudo, é necessário que você crie ou escolha uma pasta no seu computador na qual você deseja armazenar o conteúdo do repositório. Feito? 
+
+Na pasta que você escolheu para armazenar o repositório, clique no espaço vazio com o botão direito e selecione "Git Bash Here". No Bash, digite o seguinte comando (para clonar este repositório, no caso de outros repositórios a URL, naturalmente, seria diferente):
+  
+        git clone https://github.com/manuel-valdes/RoboTron_Manuel_Valdes_Projeto_Final.git
+
+Caso você ainda não tenha validado seu login no GitHub dentro desse repositório local, é possível que apareça uma janela pedindo que você autentique seu login. Se você estiver logado no GitHub dentro do seu browser, basta clicar em "Sign in with your browser". Outra forma de trazer um repositório remoto para sua máquina é de, literalmente, baixá-lo. Para isso, entre no link do repositório no GitHub que você deseja baixar, aperte o botão "Code" e selecione a opção "Download ZIP".
+
+# 👨🏻‍💻 Interagindo com os arquivos no VSCode<a name="baixar-repositorio"></a>
+
+Agora que todos os arquivos e pastas do repositório estão na sua máquina, vamos abri-los através do VSCode para que seja possível visualizar o código de maneira mais estruturada.
+
+1. Abra o VSCode
+2. No canto superior esquerdo, clique em "File" e em seguida selecione a opção "Open Folder"
+3. Localize a pasta em que você clonou ou baixou o repositório
+4. Clique em "Selecionar Pasta"
+5. Agora, todos os arquivos foram importados para o seu VSCode dentro de suas respectivas pastas. Seu ambiente de exploração de arquivos (à esquerda) deve estar parecido com o da seguinte imagem:
+
+<div align=center> 
+
+![](https://github.com/manuel-valdes/RoboTron_Manuel_Valdes_Projeto_Final/blob/develop/images/arquivos_vscode.png)
+
+</div>
+
+Clicando nas setinhas do lado esquerdo das pastas, é possível abri-las e enxergar todos os arquivos que aparecem dentro. A partir deste momento, você é capaz de abrir, executar e editar todos esses arquivos na sua máquina!
+
+# 🤔 Entendendo o Robot<a name="entendendo-robot"></a>
+
+# 🕵️ Rodando os testes no cmd<a name="cmd"></a>
+
+Para começar a rodar os testes, é importante entender uma coisa. Para que possamos ter mais controle sobre os dados que estamos enviando e recebendo, é mais interessante interagir com a ServeRest de forma local. Assim, estaremos manipulando apenas a massa de dados que nós mesmos criamos. Para que isso aconteça, abra o cmd e digite:
+
+        npx serverest
+
+Em poucos segundos a ferramenta iniciará de maneira local e abrirá uma aba com o endereço "localhost:3000" no seu navegador padrão. *IMPORTANTE*: mantenha o cmd em que este comando foi executado aberto, é ele que mantém o sistema rodando de maneira local. Para executar todos os próximos passos, abra um outro cmd.
+
+Antes de passar para a execução em si dos arquivos, precisamos entender um pouco sobre como podemos nos localizar e navegar entre diretórios (pastas) por meio do cmd. Digamos que você armazenou seu "clone" do repositório remoto dentro de uma pasta chamada "Testes", presente na Área de Trabalho. Por padrão, o cmd abre no caminho "C:\Usuários\User", em que "User" seria seu nome ou o nome que colocaram quando o computador estava sendo configurado. Para que possamos chegar até a pasta onde o repositório está armazenado, precisamos de um único comando: cd (change directory). No contexto do exemplo que acabei de descrever, seria algo parecido com isto:
+
+        cd Desktop\Testes
+
+Pronto, agora estamos na pasta em que o repositório foi clonado. Mas, dentro desta pasta, existem outras duas pastas: "images" e "tests". No diretório "tests" estão localizados todos os arquivos em que foram desenvolvidos os testes, portanto, para rodar os testes, precisamos estar dentro desta pasta. Para isso, simplesmente precisamos executar o comando cd mais uma vez:
+
+        cd tests
+
+Agora sim estamos prontos para rodar os arquivos Robot. Vale ressaltar que essa execução sempre virá por meio do mesmo arquivo, o "base.robot". Cada cenário de teste recebeu uma tag, através do qual é possível especificar qual teste queremos rodar (senão, todos rodarão simultaneamente, o que não é o objetivo neste momento). O arquivo "base.robot" é o ponto principal através do qual todo o código desenvolvido em outros arquivos é centralizado. Nele, são descritos todos os cenários de teste, cada um com sua respectiva tag. Digamos que eu quero testar se é possível criar um novo usuário no endpoint /usuarios. Como a tag desse cenário de teste é POSTUSER, o comando no cmd seria o seguinte:
+
+        robot -d ./reports -i POSTUSER base.robot
+
+A primeira parte, "robot -d ./reports" indica que estamos rodando um arquivo Robot e que queremos que os relatórios (log, output e report, arquivos descritivos padrões do framework) fiquem armazenados na pasta "reports". A segunda parte, "-i POSTUSER", indica que queremos rodar o cenário de teste que está relacionado com a tag POSTUSER. Por fim, o arquivo "base.robot", como mencionado anteriormente, é o arquivo principal através do qual todos os testes são executados. Dentre todas as palavras envolvidas nessa estrutura, a única que muda entre execuções é a tag. De resto, a estrutura é a mesma (a não ser que você queira rodar todos os testes simultaneamente, nesse caso, execute o mesmo comando sem a parte do "-i TAG". Porém, como já comentei, isso não seria interessante no contexto dos testes desenvolvidos para este repositório).
+
+# 📚 Referências<a name="referencias"></a>
+
+A estruturação deste projeto no estado em que ele se encontra até o momento foi possível graças às seguintes fontes de conhecimento:
+
+- [Documentação do Python](https://www.python.org/doc/) para consultas relacionadas às funcionalidades da linguagem
+- [Documentação do Robot](https://robotframework.org/robotframework/#standard-libraries) para entender o funcionamento e a estrutura de keywords do framework
+- [Documentação do Git](https://git-scm.com/doc) para ter em mãos os principais comandos Git
+- [Documentação do VSCode](https://code.visualstudio.com/docs) para entender o funcionamento da IDE
+- [StackOverflow](https://stackoverflow.com/) para eventuais dúvidas e consulta a erros
+- Masterclasses e conteúdo disponibilizado pelo PB da Compass.uol
+- [100 days of Python](https://www.udemy.com/course/100-days-of-code/): curso da Udemy que fiz há algum tempo (não cheguei a completar)
+
+# 🎉 Agradecimentos<a name="agradecimentos"></a>
+
+Deixo também meus sinceros agradecimentos às pessoas que colaboraram com este projeto:
+
+- [Silvioney Backes](https://github.com/neybackes) pela troca de ideias e ajuda em dúvidas
+- [Matheus Locatelli](https://github.com/matheuslocatelli) pelo acompanhamento e apoio diário
+- [Demétrio Webber](https://www.linkedin.com/in/demetriowebberqa/) por compartilhar seu conhecimento da ferramenta de maneira tão didática e acessível
 
 </div>
