@@ -1,7 +1,7 @@
 {
     "user_valido":{
-        "nome": "James Bond",
-        "email": "jamesjames@qa.com.br",
+        "nome": "James Bonder",
+        "email": "jamesjamesohman@qa.com.br",
         "password": "teste123",
         "administrador": "true"
     },
