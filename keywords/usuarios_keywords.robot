@@ -8,8 +8,12 @@ GET Endpoint /usuarios
     ${response}             GET On Session      serverest           /usuarios
     Set Global Variable     ${response}
 
+GET Endpoint /usuarios/_id
+    ${response}             GET On Session      serverest           /usuarios/${id_usuario}
+    Set Global Variable     ${response}
+
 POST Endpoint /usuarios
-    ${response}             POST On Session     serverest           /usuarios           json=${payload}
+    ${response}             POST On Session     serverest           /usuarios                                    json=${payload}
     Log to console          Response: ${response.content}
     Set Global Variable     ${response}
 
@@ -31,18 +35,13 @@ Pegar Dados Usuario Estatico Valido
     ${payload}              Set Variable                            ${json["user_valido"]}
     Set Global Variable     ${payload}
 
-#Validar Criar Usuario
-#    Should Be Equal         ${response.json()["message"]}                   Cadastro realizado com sucesso
-#   Should Not Be Empty     ${response.json()["_id"]}
+Validar Criar Usuario
+    Should Be Equal         ${response.json()["message"]}           Cadastro realizado com sucesso
+    Should Not Be Empty     ${response.json()["_id"]}
 
-#Criar Usuario e Armazenar ID
-#    POST Endpoint /usuarios
-#    Validar Criar Usuario
-#    ${id_usuario}           Set Variable            ${response.json()["_id"]}
-#    Log To Console          ID Usuario: ${id_usuario}
-#    Set Global Variable     ${id_usuario}
-
-#Cadastrar Usuario Dinamico Valido
-#    ${payload}              Criar Dados Usuario Valido
-#    Set Global Variable     ${payload}
-#    POST Endpoint /usuarios
+Criar Usuario e Armazenar ID
+    POST Endpoint /usuarios
+    Validar Criar Usuario
+    ${id_usuario}           Set Variable        ${response.json()["_id"]}
+    Log To Console          ID Usuario: ${id_usuario}
+    Set Global Variable     ${id_usuario}

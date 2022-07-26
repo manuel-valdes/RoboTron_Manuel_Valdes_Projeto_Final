@@ -27,7 +27,7 @@ Cenario: PUT editar produto 200
 
 Cenario: DELETE excluir produto 200
     [tags]      DELETEPRODUTO
-    #Criar Dados Produto Valido
+    Criar Dados Produto Valido
     #Fazer Login e Armazenar Token
     DELETE Endpoint /produtos
     Validar Status Code "200"

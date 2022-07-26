@@ -14,4 +14,4 @@ Importar JSON Estatico
     [return]        ${data}
 
 Validar Se Mensagem Contem "${palavra}"
-    Should Contain          ${response.json()["message"]}                   ${palavra}
+    Should Contain          ${response.json()["message"]}               ${palavra}

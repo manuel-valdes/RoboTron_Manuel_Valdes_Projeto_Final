@@ -14,19 +14,21 @@ GET Endpoint /produtos
 
 POST Endpoint /produtos
     &{header}               Create Dictionary       Authorization=${token_auth}   
-    ${response}             POST On Session         serverest               /produtos           data=${produtos}            headers=${header}
+    ${response}             POST On Session         serverest               /produtos                           data=${produtos}            headers=${header}
+    ${id_produto}           Set Variable            ${response.json()["_id"]}
     Log to console          Response: ${response.content}   
     Set Global Variable     ${response}
+    Set Global Variable     ${id_produto}
 
 PUT Endpoint /produtos
     &{header}               Create Dictionary       Authorization=${token_auth}
-    ${response}             PUT On Session          serverest               /produtos/${response.json()["_id"]}             data=${produtos}          headers=${header}                      
+    ${response}             PUT On Session          serverest               /produtos/${id_produto}             data=${produtos}            headers=${header}                      
     Log to console          Response: ${response.content}
     Set Global Variable     ${response}
 
 DELETE Endpoint /produtos
     &{header}               Create Dictionary       Authorization=${token_auth}  
-    ${response}             DELETE On Session       serverest               /produtos/${response.json()["_id"]}             headers=${header}
+    ${response}             DELETE On Session       serverest               /produtos/${id_produto}             headers=${header}
     Log to console          Response: ${response.content}   
     Set Global Variable     ${response}
 

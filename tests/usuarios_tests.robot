@@ -1,6 +1,7 @@
 * Settings *
 Documentation       Arquivo de testes para o endpoint /usuarios
 Resource            ../keywords/usuarios_keywords.robot
+Resource            ../support/fixtures/static/_json_usuario_ex.json
 Suite Setup         Criar Sessao
 
 
@@ -8,6 +9,13 @@ Suite Setup         Criar Sessao
 Cenario: GET todos os usuarios 200
     [tags]      GETUSER
     GET Endpoint /usuarios
+    Validar Status Code "200"
+
+Cenario: GET usuario por ID 200
+    [tags]      GETUSERID
+    Criar Dados Usuario Valido
+    Criar Usuario e Armazenar ID
+    GET Endpoint /usuarios/_id
     Validar Status Code "200"
 
 Cenario: POST cadastrar usuario 201
