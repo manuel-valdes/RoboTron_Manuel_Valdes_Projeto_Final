@@ -9,7 +9,10 @@ ${token_auth}               Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFp
 * Keywords *
 GET Endpoint /produtos
     ${response}             GET On Session          serverest               /produtos
-    Log to console          Response: ${response.content}
+    Set Global Variable     ${response}
+
+GET Endpoint /produtos/_id
+    ${response}             GET On Session          serverest               /usuarios/${id_produto}
     Set Global Variable     ${response}
 
 POST Endpoint /produtos
@@ -32,13 +35,13 @@ DELETE Endpoint /produtos
     Log to console          Response: ${response.content}   
     Set Global Variable     ${response}
 
-#Validar Criar Produto
-#    Should Be Equal         ${response.json()["message"]}                   Cadastro realizado com sucesso
-#    Should Not Be Empty     ${response.json()["_id"]}
+Validar Criar Produto
+   Should Be Equal         ${response.json()["message"]}                    Cadastro realizado com sucesso
+   Should Not Be Empty     ${response.json()["_id"]}
 
-#Criar Um Produto e Armazenar ID
-#    POST Endpoint /produtos
-#    Validar Criar Produto
-#    ${id_produto}           Set Variable            ${response.json()["_id"]}
-#    Log To Console          ID Produto: ${id_produto}
-#    Set Global Variable     ${id_produto}
+Criar Um Produto e Armazenar ID
+   POST Endpoint /produtos
+   Validar Criar Produto
+   ${id_produto}           Set Variable            ${response.json()["_id"]}
+   Log To Console          ID Produto: ${id_produto}
+   Set Global Variable     ${id_produto}
