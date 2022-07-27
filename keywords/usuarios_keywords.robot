@@ -20,6 +20,12 @@ POST Endpoint /usuarios
     Log To Console          Response: ${response.content}
     Set Global Variable     ${response}
 
+POST Usuario Inicial
+    &{payload}              Create Dictionary       nome=Marcos     email=fulano@qa.com       password=teste     administrador=true
+    ${response}             POST On Session         serverest       /usuarios          data=&{payload}
+    Log to console          Response: ${response.content}
+    Set Global Variable     ${response}
+
 POST Endpoint /usuarios Email Repetido
     ${response}             POST On Session     serverest           /usuarios       json=${email_repetido}      expected_status=anything
     Log To Console          Response: ${response.content}

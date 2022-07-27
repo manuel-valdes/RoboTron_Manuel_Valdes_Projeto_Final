@@ -12,7 +12,7 @@ GET Endpoint /produtos
     Set Global Variable     ${response}
 
 GET Endpoint /produtos/_id
-    ${response}             GET On Session          serverest               /usuarios/${id_produto}
+    ${response}             GET On Session          serverest               /produtos/${id_produto}
     Set Global Variable     ${response}
 
 POST Endpoint /produtos

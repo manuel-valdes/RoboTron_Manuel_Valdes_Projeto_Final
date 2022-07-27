@@ -5,6 +5,10 @@ Suite Setup         Criar Sessao
 
 
 * Test Cases *
+Cenario: POST usuario inicial
+    [tags]      CRIARUSER
+    POST Usuario Inicial
+
 Cenario: GET todos os usuarios 200
     [tags]      GETUSER
     GET Endpoint /usuarios

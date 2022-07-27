@@ -18,6 +18,9 @@ Cenario: GET produto por ID 200
     Criar Um Produto e Armazenar ID
     GET Endpoint /produtos/_id
     Validar Status Code "200"
+    DELETE Endpoint /produtos
+
+Cenario: GET produto por ID incorreto 400
 
 Cenario: POST criar produto 201
     [tags]      POSTPRODUTO
@@ -25,12 +28,15 @@ Cenario: POST criar produto 201
     Fazer Login e Armazenar Token
     POST Endpoint /produtos
     Validar Status Code "201"
+    DELETE Endpoint /produtos
 
 Cenario: PUT editar produto 200
     [tags]      PUTPRODUTO
     Criar Dados Produto Valido
+    POST Endpoint /produtos
     PUT Endpoint /produtos
     Validar Status Code "200"
+    DELETE Endpoint /produtos
 
 Cenario: DELETE excluir produto 200
     [tags]      DELETEPRODUTO

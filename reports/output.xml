@@ -1,75 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.8.2 on win32)" generated="20220727 16:42:08.961" rpa="false" schemaversion="3">
-<suite id="s1" name="Usuarios Tests" source="C:\Users\Pichau\Desktop\RoboTron_Manuel_Valdes_Projeto_Final\tests\usuarios_tests.robot">
+<robot generator="Robot 5.0.1 (Python 3.8.2 on win32)" generated="20220727 17:53:09.917" rpa="false" schemaversion="3">
+<suite id="s1" name="Produtos Tests" source="C:\Users\Pichau\Desktop\RoboTron_Manuel_Valdes_Projeto_Final\tests\produtos_tests.robot">
 <kw name="Criar Sessao" library="base" type="SETUP">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>serverest</arg>
 <arg>${base_uri}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20220727 16:42:09.420" level="INFO">Creating Session using : alias=serverest, url=http://localhost:3000/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20220727 16:42:09.420" endtime="20220727 16:42:09.420"/>
+<msg timestamp="20220727 17:53:10.340" level="INFO">Creating Session using : alias=serverest, url=http://localhost:3000/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220727 17:53:10.339" endtime="20220727 17:53:10.340"/>
 </kw>
-<status status="PASS" starttime="20220727 16:42:09.420" endtime="20220727 16:42:09.420"/>
+<status status="PASS" starttime="20220727 17:53:10.339" endtime="20220727 17:53:10.340"/>
 </kw>
-<test id="s1-t1" name="Cenario: GET todos os usuarios 200" line="8">
-<kw name="GET Endpoint /usuarios" library="usuarios_keywords">
+<test id="s1-t1" name="Cenario: GET todos os produtos 200" line="9">
+<kw name="GET Endpoint /produtos" library="produtos_keywords">
 <kw name="GET On Session" library="RequestsLibrary">
 <var>${response}</var>
 <arg>serverest</arg>
-<arg>/usuarios</arg>
+<arg>/produtos</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20220727 16:42:09.429" level="INFO">GET Request : url=http://localhost:3000/usuarios 
- path_url=/usuarios 
+<msg timestamp="20220727 17:53:10.349" level="INFO">GET Request : url=http://localhost:3000/produtos 
+ path_url=/produtos 
  headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20220727 16:42:09.429" level="INFO">GET Response : url=http://localhost:3000/usuarios 
+<msg timestamp="20220727 17:53:10.349" level="INFO">GET Response : url=http://localhost:3000/produtos 
  status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '6e84b296-0b33-471f-9078-89e9cd5a28ec', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '43', 'Date': 'Wed, 27 Jul 2022 19:42:09 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'Access-Control-Allow-Origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '4c606f03-a6b6-4532-807b-a2299789423d', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '1583', 'Date': 'Wed, 27 Jul 2022 20:53:10 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={
-    "quantidade": 0,
-    "usuarios": []
+    "quantidade": 7,
+    "produtos": [
+        {
+            "nome": "Amanda Long",
+            "preco": 1529,
+            "descricao": "Sea including just sense.",
+            "quantidade": 98,
+            "_id": "8orFMhnhbM9xctpu"
+        },
+        {
+            "nome": "Angela Mcintosh MD",
+            "preco": 3321,
+            "descricao": "Boy hot many itself should.",
+            "quantidade": 366,
+            "_id": "8zwGKB8BZbkt3f8M"
+        },
+        {
+            "nome": "Elizabeth Pollard",
+            "preco": 1141,
+            "descricao": "Create total billion expect quickly chair health will.",
+            "quantidade": 189,
+            "_id": "Mm1BZH3SYe3KStVj"
+        },
+        {
+            "nome": "Jessica Pacheco",
+            "preco": 943,
+            "descricao": "Three soldier assume act.",
+            "quantidade": 363,
+            "_id": "jfTPEr3WevIOTJFK"
+        },
+        {
+            "nome": "Sandra Meyer",
+            "preco": 4027,
+            "descricao": "Discussion become public clearly anyone certain.",
+            "quantidade": 741,
+            "_id": "mBUHl3VtRDq9AkU5"
+        },
+        {
+            "nome": "Jennifer Nunez",
+            "preco": 3867,
+            "descricao": "Simple response seat total low.",
+            "quantidade": 159,
+            "_id": "nyON5CHfboqKGV2Z"
+        },
+        {
+            "nome": "Ashley Alvarez",
+            "preco": 3386,
+            "descricao": "Tax threat fire let lose check piece.",
+            "quantidade": 340,
+            "_id": "urPfZMGn3NRajlsD"
+        }
+    ]
 } 
  </msg>
-<msg timestamp="20220727 16:42:09.430" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220727 16:42:09.421" endtime="20220727 16:42:09.430"/>
+<msg timestamp="20220727 17:53:10.349" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220727 17:53:10.341" endtime="20220727 17:53:10.349"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20220727 16:42:09.430" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220727 16:42:09.430" endtime="20220727 16:42:09.430"/>
+<msg timestamp="20220727 17:53:10.350" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220727 17:53:10.350" endtime="20220727 17:53:10.350"/>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${response.content}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220727 16:42:09.430" endtime="20220727 16:42:09.431"/>
-</kw>
-<status status="PASS" starttime="20220727 16:42:09.421" endtime="20220727 16:42:09.431"/>
+<status status="PASS" starttime="20220727 17:53:10.341" endtime="20220727 17:53:10.350"/>
 </kw>
 <kw name="Validar Status Code &quot;200&quot;" library="common" sourcename="Validar Status Code &quot;${statuscode}&quot;">
 <kw name="Should Be True" library="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" starttime="20220727 16:42:09.431" endtime="20220727 16:42:09.432"/>
+<status status="PASS" starttime="20220727 17:53:10.350" endtime="20220727 17:53:10.351"/>
 </kw>
-<status status="PASS" starttime="20220727 16:42:09.431" endtime="20220727 16:42:09.432"/>
+<status status="PASS" starttime="20220727 17:53:10.350" endtime="20220727 17:53:10.351"/>
 </kw>
-<tag>GETUSER</tag>
-<status status="PASS" starttime="20220727 16:42:09.421" endtime="20220727 16:42:09.433"/>
+<tag>GETPRODUTO</tag>
+<status status="PASS" starttime="20220727 17:53:10.340" endtime="20220727 17:53:10.352"/>
 </test>
-<doc>Arquivo de testes para o endpoint /usuarios</doc>
-<status status="PASS" starttime="20220727 16:42:08.963" endtime="20220727 16:42:09.433"/>
+<doc>Arquivo de testes para o endpoint /produtos</doc>
+<status status="PASS" starttime="20220727 17:53:09.919" endtime="20220727 17:53:10.352"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">GETUSER</stat>
+<stat pass="1" fail="0" skip="0">GETPRODUTO</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Usuarios Tests">Usuarios Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Produtos Tests">Produtos Tests</stat>
 </suite>
 </statistics>
 <errors>
