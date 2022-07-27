@@ -13,6 +13,7 @@ Cenario: GET todos os produtos 200
 
 Cenario: GET produto por ID 200
     [tags]      GETPRODUTOID
+    Fazer Login e Armazenar Token
     Criar Dados Produto Valido
     Criar Um Produto e Armazenar ID
     GET Endpoint /produtos/_id

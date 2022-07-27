@@ -4,6 +4,9 @@ Library             FakerLibrary
 
 
 * Keywords *
+Criar Dados Login Invalido
+    ${email}                    
+
 Criar Dados Usuario Valido
     ${nome}                     FakerLibrary.Name
     ${email}                    FakerLibrary.Email
@@ -18,4 +21,4 @@ Criar Dados Produto Valido
     ${quantidade}               FakerLibrary.RandomInt                      max=999
     ${produtos}                 Create Dictionary       nome=${nome}        preco=${preco}      descricao=${descricao}      quantidade=${quantidade}
     Log To Console              ${produtos}
-    Set Global Variable         ${produtos}              
+    Set Global Variable         ${produtos}          

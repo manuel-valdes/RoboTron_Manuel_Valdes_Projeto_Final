@@ -1,6 +1,7 @@
 * Settings *
 Documentation       Keywords e variaveis para ações gerais
 Library             OperatingSystem
+Library             BuiltIn
 
 
 * Keywords *

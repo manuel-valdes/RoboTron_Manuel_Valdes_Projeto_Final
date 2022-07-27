@@ -23,6 +23,13 @@ Cenario: POST cadastrar usuario 201
     POST Endpoint /usuarios
     Validar Status Code "201"
     Validar Se Mensagem Contem "sucesso"
+    DELETE Endpoint /usuarios
+
+Cenario: POST email ja cadastrado 400
+    [tags]      POSTEMAILREPETIDO
+    Pegar Dados Usuario Estatico Invalido
+    POST Endpoint /usuarios Email Repetido
+    Validar Status Code "400"
 
 Cenario: POST criar usuario de massa estatica 201
     [tags]      POSTSTATICUSER
@@ -36,6 +43,7 @@ Cenario: PUT editar usuario 200
     POST Endpoint /usuarios
     PUT Endpoint /usuarios
     Validar Status Code "200"
+    DELETE Endpoint /usuarios
 
 Cenario: DELETE deletar usuario 200
     [tags]      DELETEUSER

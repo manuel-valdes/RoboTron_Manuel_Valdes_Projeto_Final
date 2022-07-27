@@ -10,4 +10,4 @@ Resource                    ./variables/serverest_variables.robot
 
 * Keywords *
 Criar Sessao
-    Create Session          serverest           ${base_uri}
+    Create Session          serverest               ${base_uri}

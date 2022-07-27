@@ -14,3 +14,22 @@ def Pegar_Quantidade_De_Usuarios_Cadastrados():
     r = req.get("http://localhost:3000/usuarios")
     request_json = r.json()
     return request_json["quantidade"]
+
+def Pegar_Quantidade_De_Produtos_Cadastrados():
+    r = req.get("http://localhost:3000/produtos")
+    request_json = r.json()
+    return request_json["quantidade"]
+
+def Resetar_Massa_De_Usuarios():
+    lista_ids = []
+    i = 0
+    for i in range(102):
+        r = req.get(f"http://localhost:3000/usuarios")
+        request_json = r.json()
+        lista_ids.append(request_json["usuarios"][i]["_id"])
+        i += 1
+    value = 0
+    for value in lista_ids:
+        req.delete(f"http://localhost:3000/usuarios/{value}")
+
+Resetar_Massa_De_Usuarios()

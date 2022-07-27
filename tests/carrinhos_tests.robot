@@ -9,4 +9,10 @@ Cenario: GET carrinhos cadastrados 200
     [tags]      GETCARRINHO
     GET Endpoint /carrinhos
     Validar Status Code "200"
-    Printar Conteudo Response
+
+Cenario: POST carrinho 201
+    [tags]      POSTCARRINHO
+    Criar Dados Produto Valido
+    Adicionar Produto ao Carrinho
+    POST Endpoint /carrinhos
+    Validar Status Code "200"

@@ -1,0 +1,32 @@
+{
+    "produto_valido":{
+        "nome":"Outras mentes",
+        "preco":"45",
+        "descricao":"Livro sobre polvos",
+        "quantidade":"29"
+    },
+    "produto_sem_nome":{
+        "nome": "",
+        "preco":"7",
+        "descricao":"Livro sobre a vida",
+        "quantidade":"12"
+    },
+    "produto_sem_preco":{
+        "nome": "Dicionário Oxford",
+        "preco":"",
+        "descricao":"Dicionário de inglês",
+        "quantidade":"15"
+    },
+    "produto_sem_descricao":{
+        "nome": "Calendário maia",
+        "preco":"120",
+        "descricao":"",
+        "quantidade":"33"
+    },
+    "produto_sem_quantidade":{
+        "nome": "Livro de gramática",
+        "preco":"80",
+        "descricao":"Língua portuguesa",
+        "quantidade":""
+    }
+}

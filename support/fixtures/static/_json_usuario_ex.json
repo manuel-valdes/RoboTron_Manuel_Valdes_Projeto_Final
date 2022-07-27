@@ -22,5 +22,11 @@
         "email": "",
         "password": "teste123",
         "administrador": "true"
+    },
+    "user_sem_administrador":{
+        "nome": "Marcos Antonio",
+        "email": "iraniraque@qa.com",
+        "password": "teste123",
+        "administrador": "false"
     }
 }
