@@ -20,7 +20,7 @@ Cenario: Teste library 3
     Log To Console              ${products}
 
 Cenario: Teste library 4
-    [tags]              AAA
+    [tags]                      AAA
     ${resetar_usuarios}         Resetar Massa De Usuarios
     Log To Console              ${resetar_usuarios}
 

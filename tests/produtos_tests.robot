@@ -21,6 +21,8 @@ Cenario: GET produto por ID 200
     DELETE Endpoint /produtos
 
 Cenario: GET produto por ID incorreto 400
+    [tags]      GETPRODUTOIDINCORRETO
+    
 
 Cenario: POST criar produto 201
     [tags]      POSTPRODUTO

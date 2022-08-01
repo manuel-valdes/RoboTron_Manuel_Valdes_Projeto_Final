@@ -5,6 +5,7 @@ Suite Setup         Criar Sessao
 
 
 * Test Cases *
+#Casos válidos
 Cenario: POST usuario inicial
     [tags]      CRIARUSER
     POST Usuario Inicial
@@ -27,13 +28,7 @@ Cenario: POST cadastrar usuario 201
     POST Endpoint /usuarios
     Validar Status Code "201"
     Validar Se Mensagem Contem "sucesso"
-    DELETE Endpoint /usuarios
-
-Cenario: POST email ja cadastrado 400
-    [tags]      POSTEMAILREPETIDO
-    Pegar Dados Usuario Estatico Invalido
-    POST Endpoint /usuarios Email Repetido
-    Validar Status Code "400"
+    # DELETE Endpoint /usuarios
 
 Cenario: POST criar usuario de massa estatica 201
     [tags]      POSTSTATICUSER
@@ -55,3 +50,20 @@ Cenario: DELETE deletar usuario 200
     POST Endpoint /usuarios
     DELETE Endpoint /usuarios
     Validar Status Code "200"
+
+#Casos inválidos
+Cenario: POST email ja cadastrado 400
+    [tags]      POSTEMAILREPETIDO
+    Pegar Dados Usuario Estatico Invalido
+    POST Endpoint /usuarios Email Repetido
+    Validar Status Code "400"
+
+Cenario: POST usuario sem nome 400
+    [tags]
+    POST Endpoint /usuarios Sem Nome
+    
+
+Cenario: GET usuario id invalido 400
+    [tags]      GETUSERIDINVALIDO      
+    GET Endpoint /usuarios/_id ID Invalido
+    Validar Status Code "400"

@@ -1,120 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.8.2 on win32)" generated="20220727 17:53:09.917" rpa="false" schemaversion="3">
-<suite id="s1" name="Produtos Tests" source="C:\Users\Pichau\Desktop\RoboTron_Manuel_Valdes_Projeto_Final\tests\produtos_tests.robot">
+<robot generator="Robot 5.0.1 (Python 3.8.2 on win32)" generated="20220731 21:12:53.623" rpa="false" schemaversion="3">
+<suite id="s1" name="Carrinhos Tests" source="C:\Users\Pichau\Desktop\RoboTron_Manuel_Valdes_Projeto_Final\tests\carrinhos_tests.robot">
 <kw name="Criar Sessao" library="base" type="SETUP">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>serverest</arg>
 <arg>${base_uri}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20220727 17:53:10.340" level="INFO">Creating Session using : alias=serverest, url=http://localhost:3000/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20220727 17:53:10.339" endtime="20220727 17:53:10.340"/>
+<msg timestamp="20220731 21:12:54.084" level="INFO">Creating Session using : alias=serverest, url=http://localhost:3000/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220731 21:12:54.084" endtime="20220731 21:12:54.085"/>
 </kw>
-<status status="PASS" starttime="20220727 17:53:10.339" endtime="20220727 17:53:10.340"/>
+<status status="PASS" starttime="20220731 21:12:54.084" endtime="20220731 21:12:54.085"/>
 </kw>
-<test id="s1-t1" name="Cenario: GET todos os produtos 200" line="9">
-<kw name="GET Endpoint /produtos" library="produtos_keywords">
-<kw name="GET On Session" library="RequestsLibrary">
+<test id="s1-t1" name="Cenario: POST carrinho 201" line="13">
+<kw name="Criar Dados Produto Valido" library="dynamics">
+<kw name="Name" library="FakerLibrary">
+<var>${nome}</var>
+<doc>:example 'John Doe'</doc>
+<msg timestamp="20220731 21:12:54.085" level="INFO">${nome} = Stephanie Holloway</msg>
+<status status="PASS" starttime="20220731 21:12:54.085" endtime="20220731 21:12:54.085"/>
+</kw>
+<kw name="Random Int" library="FakerLibrary">
+<var>${preco}</var>
+<arg>max=5000</arg>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<msg timestamp="20220731 21:12:54.086" level="INFO">${preco} = 2685</msg>
+<status status="PASS" starttime="20220731 21:12:54.085" endtime="20220731 21:12:54.086"/>
+</kw>
+<kw name="Sentence" library="FakerLibrary">
+<var>${descricao}</var>
+<doc>Generate a sentence.</doc>
+<msg timestamp="20220731 21:12:54.086" level="INFO">${descricao} = Doctor early city partner light message product.</msg>
+<status status="PASS" starttime="20220731 21:12:54.086" endtime="20220731 21:12:54.086"/>
+</kw>
+<kw name="Random Int" library="FakerLibrary">
+<var>${quantidade}</var>
+<arg>max=999</arg>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<msg timestamp="20220731 21:12:54.086" level="INFO">${quantidade} = 902</msg>
+<status status="PASS" starttime="20220731 21:12:54.086" endtime="20220731 21:12:54.086"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${produtos}</var>
+<arg>nome=${nome}</arg>
+<arg>preco=${preco}</arg>
+<arg>descricao=${descricao}</arg>
+<arg>quantidade=${quantidade}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220731 21:12:54.087" level="INFO">${produtos} = {'nome': 'Stephanie Holloway', 'preco': 2685, 'descricao': 'Doctor early city partner light message product.', 'quantidade': 902}</msg>
+<status status="PASS" starttime="20220731 21:12:54.086" endtime="20220731 21:12:54.087"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${produtos}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220731 21:12:54.087" endtime="20220731 21:12:54.087"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${produtos}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220731 21:12:54.088" level="INFO">${produtos} = {'nome': 'Stephanie Holloway', 'preco': 2685, 'descricao': 'Doctor early city partner light message product.', 'quantidade': 902}</msg>
+<status status="PASS" starttime="20220731 21:12:54.087" endtime="20220731 21:12:54.088"/>
+</kw>
+<status status="PASS" starttime="20220731 21:12:54.085" endtime="20220731 21:12:54.088"/>
+</kw>
+<kw name="POST Endpoint /carrinhos" library="carrinhos_keywords">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{header}</var>
+<arg>Authorization=${token_auth}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220731 21:12:54.089" level="INFO">&amp;{header} = { Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjU3NjQzMTUyLCJleHAiOjE2NTc2NDM3NTJ9.K8zYu6CRw1oUWsOC40qybdH-ew8atZDKOoz...</msg>
+<status status="PASS" starttime="20220731 21:12:54.088" endtime="20220731 21:12:54.089"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
 <var>${response}</var>
 <arg>serverest</arg>
-<arg>/produtos</arg>
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20220727 17:53:10.349" level="INFO">GET Request : url=http://localhost:3000/produtos 
- path_url=/produtos 
- headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
+<arg>/carrinhos</arg>
+<arg>data=${produtos}</arg>
+<arg>headers=&amp;{header}</arg>
+<arg>expected_status=anything</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220731 21:12:54.098" level="INFO">POST Request : url=http://localhost:3000/carrinhos 
+ path_url=/carrinhos 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjU3NjQzMTUyLCJleHAiOjE2NTc2NDM3NTJ9.K8zYu6CRw1oUWsOC40qybdH-ew8atZDKOozvAXircVc', 'Content-Length': '108', 'Content-Type': 'application/x-www-form-urlencoded'} 
+ body=nome=Stephanie+Holloway&amp;preco=2685&amp;descricao=Doctor+early+city+partner+light+message+product.&amp;quantidade=902 
  </msg>
-<msg timestamp="20220727 17:53:10.349" level="INFO">GET Response : url=http://localhost:3000/produtos 
- status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '4c606f03-a6b6-4532-807b-a2299789423d', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '1583', 'Date': 'Wed, 27 Jul 2022 20:53:10 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+<msg timestamp="20220731 21:12:54.098" level="INFO">POST Response : url=http://localhost:3000/carrinhos 
+ status=401, reason=Unauthorized 
+ headers={'Access-Control-Allow-Origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '69883885-048a-4a69-92f8-85707200dc2c', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '103', 'Date': 'Mon, 01 Aug 2022 00:12:54 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={
-    "quantidade": 7,
-    "produtos": [
-        {
-            "nome": "Amanda Long",
-            "preco": 1529,
-            "descricao": "Sea including just sense.",
-            "quantidade": 98,
-            "_id": "8orFMhnhbM9xctpu"
-        },
-        {
-            "nome": "Angela Mcintosh MD",
-            "preco": 3321,
-            "descricao": "Boy hot many itself should.",
-            "quantidade": 366,
-            "_id": "8zwGKB8BZbkt3f8M"
-        },
-        {
-            "nome": "Elizabeth Pollard",
-            "preco": 1141,
-            "descricao": "Create total billion expect quickly chair health will.",
-            "quantidade": 189,
-            "_id": "Mm1BZH3SYe3KStVj"
-        },
-        {
-            "nome": "Jessica Pacheco",
-            "preco": 943,
-            "descricao": "Three soldier assume act.",
-            "quantidade": 363,
-            "_id": "jfTPEr3WevIOTJFK"
-        },
-        {
-            "nome": "Sandra Meyer",
-            "preco": 4027,
-            "descricao": "Discussion become public clearly anyone certain.",
-            "quantidade": 741,
-            "_id": "mBUHl3VtRDq9AkU5"
-        },
-        {
-            "nome": "Jennifer Nunez",
-            "preco": 3867,
-            "descricao": "Simple response seat total low.",
-            "quantidade": 159,
-            "_id": "nyON5CHfboqKGV2Z"
-        },
-        {
-            "nome": "Ashley Alvarez",
-            "preco": 3386,
-            "descricao": "Tax threat fire let lose check piece.",
-            "quantidade": 340,
-            "_id": "urPfZMGn3NRajlsD"
-        }
-    ]
+    "message": "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
 } 
  </msg>
-<msg timestamp="20220727 17:53:10.349" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220727 17:53:10.341" endtime="20220727 17:53:10.349"/>
+<msg timestamp="20220731 21:12:54.098" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<status status="PASS" starttime="20220731 21:12:54.089" endtime="20220731 21:12:54.098"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Response: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220731 21:12:54.098" endtime="20220731 21:12:54.099"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20220727 17:53:10.350" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220727 17:53:10.350" endtime="20220727 17:53:10.350"/>
+<msg timestamp="20220731 21:12:54.099" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<status status="PASS" starttime="20220731 21:12:54.099" endtime="20220731 21:12:54.099"/>
 </kw>
-<status status="PASS" starttime="20220727 17:53:10.341" endtime="20220727 17:53:10.350"/>
+<status status="PASS" starttime="20220731 21:12:54.088" endtime="20220731 21:12:54.100"/>
 </kw>
 <kw name="Validar Status Code &quot;200&quot;" library="common" sourcename="Validar Status Code &quot;${statuscode}&quot;">
 <kw name="Should Be True" library="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" starttime="20220727 17:53:10.350" endtime="20220727 17:53:10.351"/>
+<msg timestamp="20220731 21:12:54.101" level="FAIL">'401 == 200' should be true.</msg>
+<status status="FAIL" starttime="20220731 21:12:54.100" endtime="20220731 21:12:54.101"/>
 </kw>
-<status status="PASS" starttime="20220727 17:53:10.350" endtime="20220727 17:53:10.351"/>
+<status status="FAIL" starttime="20220731 21:12:54.100" endtime="20220731 21:12:54.102"/>
 </kw>
-<tag>GETPRODUTO</tag>
-<status status="PASS" starttime="20220727 17:53:10.340" endtime="20220727 17:53:10.352"/>
+<tag>POSTCARRINHO</tag>
+<status status="FAIL" starttime="20220731 21:12:54.085" endtime="20220731 21:12:54.102">'401 == 200' should be true.</status>
 </test>
-<doc>Arquivo de testes para o endpoint /produtos</doc>
-<status status="PASS" starttime="20220727 17:53:09.919" endtime="20220727 17:53:10.352"/>
+<doc>Arquivo de testes para o endpoint /carrinho</doc>
+<status status="FAIL" starttime="20220731 21:12:53.624" endtime="20220731 21:12:54.103"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">GETPRODUTO</stat>
+<stat pass="0" fail="1" skip="0">POSTCARRINHO</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Produtos Tests">Produtos Tests</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Carrinhos Tests">Carrinhos Tests</stat>
 </suite>
 </statistics>
 <errors>

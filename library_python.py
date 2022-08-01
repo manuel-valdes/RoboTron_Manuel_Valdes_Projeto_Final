@@ -23,7 +23,7 @@ def Pegar_Quantidade_De_Produtos_Cadastrados():
 def Resetar_Massa_De_Usuarios():
     lista_ids = []
     i = 0
-    for i in range(102):
+    for i in range(4):
         r = req.get(f"http://localhost:3000/usuarios")
         request_json = r.json()
         lista_ids.append(request_json["usuarios"][i]["_id"])

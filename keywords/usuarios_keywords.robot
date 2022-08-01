@@ -12,6 +12,12 @@ GET Endpoint /usuarios
 GET Endpoint /usuarios/_id
     ${response}             GET On Session      serverest           /usuarios/${id_usuario}                     expected_status=anything
     Set Global Variable     ${response}
+    Log To Console          ${response.content}
+
+GET Endpoint /usuarios/_id ID Invalido
+    ${response}             GET On Session      serverest           /usuarios/541                               expected_status=anything
+    Set Global Variable     ${response}
+    Log To Console          ${response.content}
 
 POST Endpoint /usuarios
     ${response}             POST On Session     serverest           /usuarios                                    json=${payload}
@@ -27,7 +33,7 @@ POST Usuario Inicial
     Set Global Variable     ${response}
 
 POST Endpoint /usuarios Email Repetido
-    ${response}             POST On Session     serverest           /usuarios       json=${email_repetido}      expected_status=anything
+    ${response}             POST On Session     serverest           /usuarios         json=${email_repetido}     expected_status=anything
     Log To Console          Response: ${response.content}
     Set Global Variable     ${response}
 
@@ -52,7 +58,12 @@ Pegar Dados Usuario Estatico Valido
 Pegar Dados Usuario Estatico Invalido
     ${json_invalido}        Importar JSON Estatico                  _json_usuario_ex.json
     ${email_repetido}       Set Variable                            ${json_invalido["user_invalido"]}
-    Set Global Variable     ${email_repetido}     
+    Set Global Variable     ${email_repetido}  
+
+Pegar Dados Usuario Estatico Sem Nome
+    ${json_invalido}        Importar JSON Estatico                  _json_usuario_ex.json
+    ${user_sem_nome}        Set Variable                            ${json_invalido["user_sem_nome"]}
+    Set Global Variable     ${user_sem_nome}   
 
 Validar Criar Usuario
     Should Be Equal         ${response.json()["message"]}           Cadastro realizado com sucesso

@@ -1,13 +1,19 @@
 {
     "user_valido":{
-        "nome": "Felipe Eslovenia",
-        "email": "espanhaeslovon@qa.com.br",
+        "nome": "Felipe Eslovenios",
+        "email": "espanhaeslovonos@qa.com.br",
         "password": "teste123",
         "administrador": "true"
     },
     "user_invalido":{
-        "nome": "Tester Invalido",
+        "nome": "Blake Hours",
         "email": "fulano@qa.com.br",
+        "password": "teste123",
+        "administrador": "true"
+    },
+    "user_sem_nome":{
+        "nome": "",
+        "email": "mister@qa.com.br",
         "password": "teste123",
         "administrador": "true"
     },
