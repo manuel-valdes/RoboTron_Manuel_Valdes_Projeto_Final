@@ -4,6 +4,10 @@ Resource                    ../support/base.robot
 
 
 * Keywords *
+Gerar Dados Aleatorios
+    ${dados_aleatorios}     Gerar Dados Aleatorios                  
+    Log To Console          ${dados_aleatorios}
+
 GET Endpoint /usuarios
     ${response}             GET On Session      serverest           /usuarios
     Set Global Variable     ${response}
@@ -27,8 +31,8 @@ POST Endpoint /usuarios
     Set Global Variable     ${response}
 
 POST Usuario Inicial
-    &{payload}              Create Dictionary       nome=Marcos     email=fulano@qa.com       password=teste     administrador=true
-    ${response}             POST On Session         serverest       /usuarios          data=&{payload}
+    &{payload}              Create Dictionary   nome=Marcos         email=fulano@qa.com       password=teste     administrador=true
+    ${response}             POST On Session     serverest           /usuarios                 data=&{payload}
     Log to console          Response: ${response.content}
     Set Global Variable     ${response}
 
@@ -37,10 +41,37 @@ POST Endpoint /usuarios Email Repetido
     Log To Console          Response: ${response.content}
     Set Global Variable     ${response}
 
+POST Endpoint /usuarios Sem Email
+    ${response}             POST On Session     serverest           /usuarios         json=${user_sem_email}    expected_status=anything
+    Log To Console          Response: ${response.content}
+    Set Global Variable     ${response}
+
+POST Endpoint /usuarios Sem Nome
+    ${response}             POST On Session     serverest           /usuarios         json=${user_sem_nome}     expected_status=anything
+    Log To Console          Response: ${response.content}
+    Set Global Variable     ${response}
+
+POST Endpoint /usuarios Sem Senha
+    ${response}             POST On Session     serverest           /usuarios         json=${user_sem_senha}    expected_status=anything
+    Log To Console          Response: ${response.content}
+    Set Global Variable     ${response}
+
+POST Endpoint /usuarios Sem Administrador
+    ${response}             POST On Session     serverest           /usuarios         json=${user_sem_adm}      expected_status=anything
+    Log To Console          Response: ${response.content}
+    Set Global Variable     ${response}
+
 PUT Endpoint /usuarios
-    ${response}             PUT On Session      serverest           /usuarios/${response.json()["_id"]}           json=${payload}
+    ${response}             PUT On Session      serverest           /usuarios/${response.json()["_id"]}         json=${payload}
     Log to console          Response: ${response.content}
     Set Global Variable     ${response}
+
+# PUT Alterar Senha
+#     ${nova_senha}           Gerar Dados Aleatorios                  
+#     Set To Dictionary       ${payload}                              password=${nova_senha}
+#     ${response}             PUT On Session      serverest           /usuarios/${response.json()["_id"]}         json=${payload}
+#     Log to console          Response: ${response.content}
+#     Set Global Variable     ${response}
 
 DELETE Endpoint /usuarios
     ${response}             DELETE On Session   serverest           /usuarios/${id_usuario}
@@ -64,6 +95,21 @@ Pegar Dados Usuario Estatico Sem Nome
     ${json_invalido}        Importar JSON Estatico                  _json_usuario_ex.json
     ${user_sem_nome}        Set Variable                            ${json_invalido["user_sem_nome"]}
     Set Global Variable     ${user_sem_nome}   
+
+Pegar Dados Usuario Estatico Sem Email
+    ${json_invalido}        Importar JSON Estatico                  _json_usuario_ex.json
+    ${user_sem_email}       Set Variable                            ${json_invalido["user_sem_email"]}
+    Set Global Variable     ${user_sem_email}
+
+Pegar Dados Usuario Estatico Sem Senha
+    ${json_invalido}        Importar JSON Estatico                  _json_usuario_ex.json
+    ${user_sem_senha}       Set Variable                            ${json_invalido["user_sem_senha"]}
+    Set Global Variable     ${user_sem_senha}
+
+Pegar Dados Usuario Estatico Sem Administrador
+    ${json_invalido}        Importar JSON Estatico                  _json_usuario_ex.json
+    ${user_sem_adm}         Set Variable                            ${json_invalido["user_sem_administrador"]}
+    Set Global Variable     ${user_sem_adm}
 
 Validar Criar Usuario
     Should Be Equal         ${response.json()["message"]}           Cadastro realizado com sucesso

@@ -12,6 +12,22 @@ GET Endpoint /carrinhos
 
 POST Endpoint /carrinhos
     &{header}               Create Dictionary       Authorization=${token_auth}
-    ${response}             POST On Session         serverest       /carrinhos      data=${produtos}            headers=&{header}       expected_status=anything
+    ${response}             POST On Session         serverest       /carrinhos      data=${payload}                         headers=&{header}       expected_status=anything
     Log to console          Response: ${response.content}   
     Set Global Variable     ${response}
+
+POST Endpoint /carrinhos Vazio
+    &{header}               Create Dictionary       Authorization=${token_auth}
+    ${response}             POST On Session         serverest       /carrinhos      data=${carrinho_sem_produtos}            headers=&{header}       expected_status=anything
+    Log to console          Response: ${response.content}   
+    Set Global Variable     ${response}
+
+Pegar Dados Carrinho Estatico Valido
+    ${json}                 Importar JSON Estatico                  _json_carrinhos_ex.json
+    ${payload}              Set Variable                            ${json["carrinho_valido"]}
+    Set Global Variable     ${payload}
+
+Pegar Dados Carrinho Estatico Sem Produtos
+    ${json}                     Importar JSON Estatico              _json_carrinhos_ex.json
+    ${carrinho_sem_produtos}    Set Variable                        ${json["carrinho_sem_produtos"]}
+    Set Global Variable         ${carrinho_sem_produtos}

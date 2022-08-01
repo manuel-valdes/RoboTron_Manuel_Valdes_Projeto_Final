@@ -4,6 +4,7 @@ Library                 library_python.py
 Library                 RequestsLibrary
 Resource                ./support/base.robot
 Resource                ./keywords/usuarios_keywords.robot
+Resource                ./keywords/login_keywords.robot
 Suite Setup             Criar Sessao
 
 * Test Cases *
@@ -25,6 +26,12 @@ Cenario: Teste library 4
     Log To Console              ${resetar_usuarios}
 
 Cenario: Teste library 5
-    [tags]
+    [tags]                      III
+    Fazer Login e Armazenar Token
     ${resetar_produtos}         Resetar Massa De Produtos
     Log To Console              ${resetar_produtos}
+
+Cenario: Teste library 6
+    [tags]                      DADOS
+    ${dados_aleatorios}         Gerar Dados Aleatorios                      ${12}
+    Log To Console              ${dados_aleatorios}

@@ -1,5 +1,7 @@
 import requests as req
 import json
+import random
+import string
 
 
 def Get_Endpoint_Usuarios_Tantas_Vezes(vezes):
@@ -43,3 +45,7 @@ def Resetar_Massa_De_Produtos():
     value = 0
     for value in ids_produtos:
         req.delete(f"http://localhost:3000/produtos/{value}")
+
+def Gerar_Dados_Aleatorios(tamanho):
+    letras = string.ascii_lowercase
+    return ''.join(random.choice(letras) for i in range(tamanho))

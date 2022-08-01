@@ -33,6 +33,6 @@
         "nome": "Marcos Antonio",
         "email": "iraniraque@qa.com",
         "password": "teste123",
-        "administrador": "false"
+        "administrador": ""
     }
 }
