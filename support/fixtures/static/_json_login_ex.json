@@ -11,7 +11,7 @@
         "email": "fulano@qa.com",
         "password": ""
     },
-    "login_sem_senha":{
+    "login_sem_email":{
         "email": "",
         "password": "teste"
     }

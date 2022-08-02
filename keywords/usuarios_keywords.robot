@@ -1,5 +1,6 @@
 * Settings *
 Documentation               Keywords e variaveis para ações do endpoint de usuarios
+Library                     ../library_python.py
 Resource                    ../support/base.robot
 
 
@@ -66,15 +67,44 @@ PUT Endpoint /usuarios
     Log to console          Response: ${response.content}
     Set Global Variable     ${response}
 
-# PUT Alterar Senha
-#     ${nova_senha}           Gerar Dados Aleatorios                  
-#     Set To Dictionary       ${payload}                              password=${nova_senha}
-#     ${response}             PUT On Session      serverest           /usuarios/${response.json()["_id"]}         json=${payload}
-#     Log to console          Response: ${response.content}
-#     Set Global Variable     ${response}
+PUT Alterar Senha
+    # ${nova_senha}           Gerar Dados Aleatorios                                  
+    Set To Dictionary       ${payload}                              password=oooooooooo
+    ${response}             PUT On Session      serverest           /usuarios/${response.json()["_id"]}         json=${payload}
+    Log to console          Response: ${response.content}
+    Set Global Variable     ${response}
+
+PUT Alterar Senha Invalida
+    # ${nova_senha}           Gerar Dados Aleatorios                                  
+    Set To Dictionary       ${payload}                              password=password com espaços 
+    ${response}             PUT On Session      serverest           /usuarios/${response.json()["_id"]}         json=${payload}
+    Log to console          Response: ${response.content}
+    Set Global Variable     ${response}
+
+PUT Alterar Nome                               
+    Set To Dictionary       ${payload}                              nome=Juca Ferreira
+    ${response}             PUT On Session      serverest           /usuarios/${response.json()["_id"]}         json=${payload}
+    Log to console          Response: ${response.content}
+    Set Global Variable     ${response}
+
+PUT Alterar Email                             
+    Set To Dictionary       ${payload}                              email=emailfalso1234@gmail.com                
+    ${response}             PUT On Session      serverest           /usuarios/${response.json()["_id"]}         json=${payload}
+    Log to console          Response: ${response.content}
+    Set Global Variable     ${response}
+
+PUT ID Invalido                             
+    ${response}             PUT On Session      serverest           /usuarios/04I       json=${payload}         expected_status=anything
+    Log to console          Response: ${response.content}
+    Set Global Variable     ${response}
 
 DELETE Endpoint /usuarios
-    ${response}             DELETE On Session   serverest           /usuarios/${id_usuario}
+    ${response}             DELETE On Session   serverest           /usuarios/${id_usuario}                     expected_status=anything
+    Log to console          Response: ${response.content}
+    Set Global Variable     ${response}
+
+DELETE Endpoint /usuarios Invalido
+    ${response}             DELETE On Session   serverest           /usuarios/99999
     Log to console          Response: ${response.content}
     Set Global Variable     ${response}
 

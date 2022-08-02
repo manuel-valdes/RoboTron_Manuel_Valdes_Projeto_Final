@@ -22,10 +22,10 @@ def Pegar_Quantidade_De_Produtos_Cadastrados():
     request_json = r.json()
     return request_json["quantidade"]
 
-def Resetar_Massa_De_Usuarios():
+def Resetar_Massa_De_Usuarios(users):
     lista_ids = []
     i = 0
-    for i in range(4):
+    for i in range(users):
         r = req.get(f"http://localhost:3000/usuarios")
         request_json = r.json()
         lista_ids.append(request_json["usuarios"][i]["_id"])
@@ -37,7 +37,7 @@ def Resetar_Massa_De_Usuarios():
 def Resetar_Massa_De_Produtos():
     ids_produtos = []
     i = 0
-    for i in range(3):
+    for i in range(15):
         r = req.get(f"http://localhost:3000/produtos")
         request_json = r.json()
         ids_produtos.append(request_json["produtos"][i]["_id"])
@@ -47,5 +47,5 @@ def Resetar_Massa_De_Produtos():
         req.delete(f"http://localhost:3000/produtos/{value}")
 
 def Gerar_Dados_Aleatorios(tamanho):
-    letras = string.ascii_lowercase
-    return ''.join(random.choice(letras) for i in range(tamanho))
+    senha = string.ascii_lowercase
+    return ''.join(random.choice(senha) for i in range(tamanho))

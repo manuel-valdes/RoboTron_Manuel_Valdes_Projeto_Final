@@ -1,18 +1,19 @@
 {
     "carrinho_valido":{
-            "produtos": [
+        "produtos":[
             {
-                "id_produto": "mBUHl3VtRDq9AkU5",
+                "idProduto": "nyON5CHfboqKGV2Z",
                 "quantidade": 1
             },
             {
-                "id_produto": "YaeJ455lz3k6kSIzA",
+                "idProduto": "lulHjtr4xvMcNv2E",
                 "quantidade": 3
             }
         ]
     },
     "carrinho_sem_produtos":{
-        "produtos": [
-    ]
-}
+        "produtos":[
+
+        ]
+    }
 }
