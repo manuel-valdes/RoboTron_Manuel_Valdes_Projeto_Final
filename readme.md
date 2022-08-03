@@ -1,4 +1,4 @@
-![](https://github.com/manuel-valdes/RoboTron_Manuel_Valdes_Projeto_Final/blob/develop/images/compass.png)
+<!-- ![](https://github.com/manuel-valdes/RoboTron_Manuel_Valdes_Projeto_Final/blob/develop/images/compass.png) -->
 
 # 👾 Introdução
 
