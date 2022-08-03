@@ -141,6 +141,12 @@ Chegamos na galinha dos ovos de ouro. Se você seguiu todos os passos até aqui 
                     
 O "pip" nada mais é do que o gerenciador de pacotes do Python. Frameworks e bibliotecas podem ser instalados através dele. Depois desse comando, digite "robot --version" (também no cmd) e aperte Enter. Se aparecer a versão do Robot, deu tudo certo. Caso apareça um erro como "robot não é um comando reconhecido pelo sistema", novamente, a questão precisa ser resolvida através do Path. Siga os passos indicados na seção de instalação do Python (a pasta é a mesma, Scripts, dentro de Python310).
 
+Também é recomendada a instalação da biblioteca Faker e da biblioteca RequestsLibrary através dos seguintes comandos:
+
+        pip install robotframework-faker
+
+        pip install robotframework-requests
+
 # 👨🏻‍💻 Baixando o repositório<a name="baixar-repositorio"></a>
 
 Agora que todas as ferramentas necessárias já estão presentes na sua máquina, podemos passar para a transferência do repositório para o seu sistema local. Lembra do "git clone"? O comando que eu falei que apresentaria um pouco mais para a frente. Pois bem, chegou sua hora. O "git clone" permite que você copie o repositório remoto completo para sua máquina com um único comando. Porém, antes de tudo, é necessário que você crie ou escolha uma pasta no seu computador na qual você deseja armazenar o conteúdo do repositório. Feito? 
@@ -493,6 +499,8 @@ Outra forma de rodar os testes é através de tags. Cada um dos CTs tem um tag �
 
         robot -d ./reports -i 13 ./tests/usuarios_tests.robot
 
+Gostaria de ressaltar que, além da aplicação do Robot Framework, como parte do challenge fui desafiado a criar uma biblioteca com algumas funções em Python que deveriam ser implementadas no projeto. Essa biblioteca encontra-se na pasta base deste repositório e tem o nome de "library_python.py". Junto com ela, criei um arquivo em Robot ("consumir_python_lib.robot") para implementar as funções no formato de keyword. 
+
 # 🗺️ Mapa mental da ServeRest<a name="mapa-mental"></a>
 
 Abaixo, encontra-se um mapa mental completo da API Serverest. Por se tratar de um arquivo XMind, recomendo que se faça o download do original e que ele seja explorado no próprio software em que foi criado. Assim, é possível dar zoom e abrir os comentários relacionados a cada um dos códigos de retorno. Para fazer o download, [clique neste link](https://drive.google.com/drive/folders/13jxcINMSRNlr2am2TrL-5vF3NDSuHxCq?usp=sharing).
@@ -504,6 +512,65 @@ Abaixo, encontra-se um mapa mental completo da API Serverest. Por se tratar de u
 </div>
 
 # 🔨 Ferramentas e extensões utilizadas<a name="ferramentas"></a>
+
+<table>
+  <tr>
+    <td nowrap><strong>Ferramenta</strong></td>
+    <td>Função</td>
+  </tr>  
+  <tr>
+    <td>VSCode</td>
+    <td>IDE utilizada para desenvolvimento do código e realização de comentários explicando as soluções</td>
+  </tr>
+  <tr>
+    <td>Python</td>
+    <td>Linguagem de programação</td>
+  </tr>
+  <tr>
+    <td>Robot Framework</td>
+    <td>Framework em Python para automação de testes</td>
+  </tr>
+  <tr>
+    <td>BuiltIn Robot Framework</td>
+    <td>Biblioteca de funções nativas do Robot</td>
+  </tr>
+  <tr>
+    <td>Collections Robot Framework</td>
+    <td>Biblioteca de funções nativas do Robot</td>
+  </tr>
+  <tr>
+    <td>RequestsLibrary Robot Framework</td>
+    <td>Biblioteca para fazer requisições a APIs</td>
+  </tr>
+  <tr>
+    <td>OperatingSystem Robot Framework</td>
+    <td>Biblioteca de funções para interação com sistema operacional</td>
+  </tr>
+  <tr>
+    <td>FakerLibrary Robot Framework</td>
+    <td>Biblioteca para criação de dados dinâmicos</td>
+  </tr>
+  <tr>
+    <td>Git</td>
+    <td>Versionamento do código</td>
+  </tr>
+  <tr>
+    <td>GitHub</td>
+    <td>Repositório remoto usado para compartilhar e armazenar código e dados</td>
+  </tr>
+  <tr>
+    <td>CSV Rainbow</td>
+    <td>Extensão do VSCode que facilita a leitura de arquivos .csv</td>
+  </tr>
+  <tr>
+    <td>JSON</td>
+    <td>Biblioteca do Python que permite a manipulação de arquivos .json</td>
+  </tr>
+  <tr>
+    <td>Prompt de comando</td>
+    <td>Usado para rodar o código</td>
+  </tr>
+</table>
 
 # 📚 Referências<a name="referencias"></a>
 
@@ -521,6 +588,7 @@ A estruturação deste projeto no estado em que ele se encontra até o momento f
 
 Deixo também meus sinceros agradecimentos às pessoas que colaboraram com este projeto:
 
+- [Emily Lanzarin](https://github.com/eslanzarin) pela troca de ideias e ajuda em dúvidas
 - [Silvioney Backes](https://github.com/neybackes) pela troca de ideias e ajuda em dúvidas
 - [Matheus Locatelli](https://github.com/matheuslocatelli) pelo acompanhamento e apoio diário
 - [Demétrio Webber](https://www.linkedin.com/in/demetriowebberqa/) por compartilhar seu conhecimento da ferramenta de maneira tão didática e acessível
