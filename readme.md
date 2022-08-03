@@ -582,6 +582,9 @@ A estruturação deste projeto no estado em que ele se encontra até o momento f
 
 - [Documentação do Python](https://www.python.org/doc/) para consultas relacionadas às funcionalidades da linguagem
 - [Documentação do Robot](https://robotframework.org/robotframework/#standard-libraries) para entender o funcionamento e a estrutura de keywords do framework
+- [Documentação da bilioteca BuiltIn](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html) para o estudo e a consulta de keywords nativas do framework
+- [Documentação da bilioteca OperatingSystem](https://robotframework.org/robotframework/latest/libraries/OperatingSystem.html) para o estudo e a consulta de keywords que permitem que o Robot interaja com arquivos e diretórios da máquina
+- [Documentação da bilioteca FakerLibrary](https://guykisel.github.io/robotframework-faker/) para a criação de massas de dados dinâmicas
 - [Documentação do Git](https://git-scm.com/doc) para ter em mãos os principais comandos Git
 - [Documentação do VSCode](https://code.visualstudio.com/docs) para entender o funcionamento da IDE
 - [StackOverflow](https://stackoverflow.com/) para eventuais dúvidas e consulta a erros
