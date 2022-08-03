@@ -103,5 +103,5 @@ Cenario 38: POST produto com quantidade invalida 400
 Cenario 39: Listar IDs produtos 200
     [tags]      39
     Fazer Login e Armazenar Token
-    Resetar Massa De Produtos
+    Pegar ID Massa De Produtos
     Validar Status Code "200"

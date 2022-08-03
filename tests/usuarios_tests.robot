@@ -6,9 +6,9 @@ Suite Setup         Criar Sessao
 
 * Test Cases *
 #Casos válidos
-Cenario 8: POST usuario inicial
-    [tags]      8
-    POST Usuario Inicial
+# Cenario 8: POST usuario inicial
+#     [tags]      8
+#     POST Usuario Inicial
 
 Cenario 9: GET todos os usuarios 200
     [tags]      9

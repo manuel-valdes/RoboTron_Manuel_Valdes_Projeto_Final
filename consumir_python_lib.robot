@@ -31,7 +31,7 @@ Cenario: Teste library 4
 Cenario: Teste library 5
     [tags]                      IDPRODUTOS
     # Fazer Login e Armazenar Token
-    ${resetar_produtos}         Resetar Massa De Produtos                   
+    ${resetar_produtos}         Pegar ID Massa De Produtos                   
     Log To Console              ${resetar_produtos}
 
 Cenario: Teste library 6

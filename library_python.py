@@ -34,7 +34,7 @@ def Resetar_Massa_De_Usuarios(users):
     for value in lista_ids:
         req.delete(f"http://localhost:3000/usuarios/{value}")
 
-def Resetar_Massa_De_Produtos():
+def Pegar_ID_Massa_De_Produtos():
     ids_produtos = []
     i = 0
     for i in range(15):
