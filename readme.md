@@ -181,6 +181,8 @@ Este repositório foi organizado de acordo com o padrão Service-Object, em que 
 
 A seguir, disponibilizo uma tabela com todos os casos de teste criados, seus respectivos nomes, objetivos e resultados. Eles estão organizados de acordo com a ordem em que os endpoints aparecem na própria Serverest: login, usuários, produtos e carrinhos. 
 
+</div>
+
 <table>
   <tr>
     <td nowrap><strong>Cenário</strong></td>
@@ -463,6 +465,8 @@ A seguir, disponibilizo uma tabela com todos os casos de teste criados, seus res
     <td>Bug documental: mensagem de response não está na documentação</td>
   </tr>
 </table>
+
+<div align=justify>
 
 # 🕵️ Rodando os testes no cmd<a name="cmd"></a>
 
