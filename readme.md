@@ -169,7 +169,7 @@ Agora que todos os arquivos e pastas do repositório estão na sua máquina, vam
 
 <div align=center> 
 
-![](https://github.com/manuel-valdes/RoboTron_Manuel_Valdes_Projeto_Final/blob/develop/images/arquivos_vscode.png)
+![](https://github.com/manuel-valdes/RoboTron_Manuel_Valdes_Projeto_Final/blob/develop/images/exploracao_arquivos_vscode.png)
 
 </div>
 
