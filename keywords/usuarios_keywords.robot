@@ -88,7 +88,7 @@ PUT Alterar Nome
     Set Global Variable     ${response}
 
 PUT Alterar Email                             
-    Set To Dictionary       ${payload}                              email=emailfalso1234@gmail.com                
+    Set To Dictionary       ${payload}                              email=meunovoemail@gmail.com                
     ${response}             PUT On Session      serverest           /usuarios/${response.json()["_id"]}         json=${payload}
     Log to console          Response: ${response.content}
     Set Global Variable     ${response}

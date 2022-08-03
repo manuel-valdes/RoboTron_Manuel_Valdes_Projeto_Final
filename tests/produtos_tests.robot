@@ -100,7 +100,7 @@ Cenario 38: POST produto com quantidade invalida 400
     POST Produto Com Quantidade Invalida
     Validar Status Code "400"
 
-Cenario 39: DELETE resetar massa de produtos 200
+Cenario 39: Listar IDs produtos 200
     [tags]      39
     Fazer Login e Armazenar Token
     Resetar Massa De Produtos

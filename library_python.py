@@ -42,9 +42,7 @@ def Resetar_Massa_De_Produtos():
         request_json = r.json()
         ids_produtos.append(request_json["produtos"][i]["_id"])
         i += 1
-    value = 0
-    for value in ids_produtos:
-        req.delete(f"http://localhost:3000/produtos/{value}")
+    return ids_produtos
 
 def Gerar_Dados_Aleatorios(tamanho):
     senha = string.ascii_lowercase

@@ -19,6 +19,7 @@ Cenario 41: GET carrinho por ID 200
     Criar Carrinho e Armazenar ID
     GET Endpoint /carrinhos/_id
     Validar Status Code "200"
+    DELETE Carrinho Cancelar Compra
 
 Cenario 42: POST carrinho 201
     [tags]      42
@@ -37,6 +38,7 @@ Cenario 43: DELETE carrinho cancelar compra 200
 Cenario 44: DELETE carrinho concluir compra 200
     [tags]      44
     Fazer Login e Armazenar Token
+    Pegar Dados Carrinho Estatico Valido
     POST Endpoint /carrinhos
     DELETE Carrinho Concluir Compra
     Validar Status Code "200"

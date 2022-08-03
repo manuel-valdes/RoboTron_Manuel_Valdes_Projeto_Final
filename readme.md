@@ -19,9 +19,10 @@ Ao longo dos próximos parágrafos, descreverei como fazer a instalação de tod
 - [Baixando o repositório](#baixar-repositorio)
 - [Interagindo com os arquivos no VSCode](#arquivos-vscode)
 - [Entendendo o Robot](#entendendo-robot)
+- [Suíte de casos de teste](#casos-teste)
 - [Mapa mental da ServeRest](#mapa-mental)
 - [Rodando os testes no cmd](#cmd)
-- [Ferramentas e extensões utilizadas](#ferramentas)
+- [Ferramentas, bibliotecas e extensões utilizadas](#ferramentas)
 - [Referências](#referencias)
 - [Agradecimentos](#agradecimentos)
 
@@ -170,9 +171,302 @@ Clicando nas setinhas do lado esquerdo das pastas, é possível abri-las e enxer
 
 # 🤔 Entendendo o Robot<a name="entendendo-robot"></a>
 
+O Robot Framework funciona por meio da criação e da execução de keywords. Existem diversas bibliotecas que oferecem keywords e parâmetros diversos para que você possa criar seus próprios casos de teste de maneira mais fácil e dinâmica. Ainda assim, um certo nível de programação e de lógica estrutural é necessário para que possamos criar casos de teste em que todos os passos envolvidos no cenário sejam abstraidos para o formato de keywords de maneira correta. Com isso em mente, recomendo que qualquer pessoa que esteja interessada em entender o Robot de forma mais completa leia um pouco da documentação das seguintes bibliotecas: [BuiltIn](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html), na qual as keywords nativas - as mais comuns - do Robot estão listadas e explicadas; e [OperatingSystem](https://robotframework.org/robotframework/latest/libraries/OperatingSystem.html), que permite que o Framework manipule e interaja com arquivos e diretórios da sua máquina. 
+
+Existe um processo de importação associado com a utilização dessas bibliotecas. Na seção "* Settings *" do seu arquivo .robot, digite "Library", use a tabulação para separar o comando de sua especificação e escreva o nome da biblioteca que você deseja utilizar (isso funciona para qualquer biblioteca do Robot, porém em alguns casos pode ser que você precise instalá-la em sua máquina antes). A questão da tabulação é fundamental, uma vez que é a maneira do Robot de entender os comandos que você está passando para ele. 
+
+Este repositório foi organizado de acordo com o padrão Service-Object, em que os arquivos que listam os casos de teste, os arquivos das keywords relacionadas a cada endpoint, os relatórios e etc. estão separados por pastas específicas. 
+
+# 🎯 Suíte de casos de teste<a name="casos-teste"></a>
+
+A seguir, disponibilizo uma tabela com todos os casos de teste criados, seus respectivos nomes, objetivos e resultados. Eles estão organizados de acordo com a ordem em que os endpoints aparecem na própria Serverest: login, usuários, produtos e carrinhos. 
+
+<table>
+  <tr>
+    <td nowrap><strong>Cenário</strong></td>
+    <td>Descrição</td>
+    <td>Response</td>
+    <td>Resultado</td>
+  </tr>  
+  <tr>
+    <td>CT 01 - POST realizar login</td>
+    <td>Caso de teste com objetivo de realizar login válido, com retorno de status code 200</td>
+    <td>Response: "Login realizado com sucesso"; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 02 - POST realizar login com usuário inexistente</td>
+    <td>Caso de teste com objetivo de realizar login inválido, com retorno de status code 401</td>
+    <td>Response: "Email e/ou senha inválidos"; status code: 401; PASS</td>
+    <td>Bug documental: status code 401 não está previsto com essa mensagem</td>
+  </tr>
+  <tr>
+    <td>CT 03 - POST login com senha inválida</td>
+    <td>Caso de teste com objetivo de realizar login com senha inválida, com retorno de status code 401</td>
+    <td>Response: "Email e/ou senha inválidos"; status code: 401; PASS</td>
+    <td>Bug documental: status code 401 não está previsto com essa mensagem</td>
+  </tr>
+  <tr>
+    <td>CT 04 - POST login sem senha</td>
+    <td>Caso de teste com objetivo de realizar login sem senha, com retorno de status code 400</td>
+    <td>Response: "Password não pode ficar em branco"; status code: 400; PASS</td>
+    <td>Bug documental: mensagem de response não está na documentação</td>
+  </tr>
+  <tr>
+    <td>CT 05 - POST login sem email</td>
+    <td>Caso de teste com objetivo de realizar login sem email, com retorno de status code 400</td>
+    <td>Response: "Email não pode ficar em branco"; status code: 400; PASS</td>
+    <td>Bug documental: mensagem de response não está na documentação</td>
+  </tr>
+  <tr>
+    <td>CT 06 - POST login com email inválido</td>
+    <td>Caso de teste com objetivo de realizar login com email em formato inválido, com retorno de status code 400</td>
+    <td>Response: "Email deve ser um email válido"; status code: 400; PASS</td>
+    <td>Bug documental: mensagem de response não está na documentação</td>
+  </tr>
+  <tr>
+    <td>CT 07 - POST login sem email e sem senha</td>
+    <td>Caso de teste com objetivo de realizar login sem email e sem senha, com retorno de status code 400</td>
+    <td>Response: "Email não pode ficar em branco", "Password não pode ficar em branco"; status code: 400; PASS</td>
+    <td>Bug documental: mensagens de response não estão na documentação</td>
+  </tr>
+  <tr>
+    <td>CT 08 - POST usuário inicial</td>
+    <td>Caso de teste com objetivo de criar o primeiro usuário ao rodar localmente, com retorno de status code 200</td>
+    <td>Response: "Cadastro realizado com sucesso"; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 09 - GET todos os usuários</td>
+    <td>Caso de teste com objetivo de retornar todos os usuários registrados, com retorno de status code 200</td>
+    <td>Response: lista de usuários (nome, email, password, administrador, id); status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+    <td>CT 10 - GET usuário por ID</td>
+    <td>Caso de teste com objetivo de retornar um usuário específico, com retorno de status code 200</td>
+    <td>Response: usuário com todos seus dados (nome, email, password, administrador, id); status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  <tr>
+    <td>CT 11 - POST cadastrar usuário</td>
+    <td>Caso de teste com objetivo de criar usuário válido, com retorno de status code 200</td>
+    <td>Response: "Cadastro realizado com sucesso"; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 12 - POST criar usuário de massa estática</td>
+    <td>Caso de teste com objetivo de criar usuário válido através de um arquivo .json com dados estáticos, com retorno de status code 200</td>
+    <td>Response: "Cadastro realizado com sucesso"; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 13 - PUT editar usuário</td>
+    <td>Caso de teste com objetivo de editar todos os dados de usuário válido registrado, com retorno de status code 200</td>
+    <td>Response: "Registro alterado com sucesso"; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 14 - PUT editar senha do usuário</td>
+    <td>Caso de teste com objetivo de editar a senha de usuário válido, com retorno de status code 200</td>
+    <td>Response: "Registro alterado com sucesso"; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 15 - PUT editar senha com espaços</td>
+    <td>Caso de teste com objetivo de editar a senha de usuário válido com espaços, com retorno de status code 200</td>
+    <td>Response: "Registro alterado com sucesso"; status code: 200; PASS</td>
+    <td>Bug: campo de senha permite espaços entre caracteres</td>
+  </tr>
+  <tr>
+    <td>CT 16 - PUT editar nome do usuário</td>
+    <td>Caso de teste com objetivo de editar o nome de usuário válido, com retorno de status code 200</td>
+    <td>Response: "Registro alterado com sucesso"; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 17 - PUT editar email do usuario</td>
+    <td>Caso de teste com objetivo de editar o email de usuário válido, com retorno de status code 200</td>
+    <td>Response: "Registro alterado com sucesso"; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 18 - DELETE deletar usuario</td>
+    <td>Caso de teste com objetivo de deletar usuário válido, com retorno de status code 200</td>
+    <td>Response: "Registro excluído com sucesso"; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 19 - DELETE usuário inexistente</td>
+    <td>Caso de teste com objetivo de deletar usuário inexistente, com retorno de status code 200</td>
+    <td>Response: "Nenhum registro excluído"; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 20 - GET usuário id inválido</td>
+    <td>Caso de teste com objetivo de encontrar usuário através de ID inválido, com retorno de status code 400</td>
+    <td>Response: "Usuário não encontrado"; status code: 400; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 21 - POST email já cadastrado</td>
+    <td>Caso de teste com objetivo de criar usuário com email já cadastrado, com retorno de status code 400</td>
+    <td>Response: "Este email já está sendo usado"; status code: 400; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 22 - POST usuário sem nome</td>
+    <td>Caso de teste com objetivo de criar usuário sem nome, com retorno de status code 400</td>
+    <td>Response: "Nome não pode ficar em branco"; status code: 400; PASS</td>
+    <td>Bug documental: mensagem de response não está na documentação</td>
+  </tr>
+  <tr>
+    <td>CT 23 - POST usuário sem email</td>
+    <td>Caso de teste com objetivo de criar usuário sem email, com retorno de status code 400</td>
+    <td>Response: "Email não pode ficar em branco"; status code: 400; PASS</td>
+    <td>Bug documental: mensagem de response não está na documentação</td>
+  </tr>
+  <tr>
+    <td>CT 24 - POST usuário sem senha</td>
+    <td>Caso de teste com objetivo de criar usuário sem email, com retorno de status code 400</td>
+    <td>Response: "Password não pode ficar em branco"; status code: 400; PASS</td>
+    <td>Bug documental: mensagem de response não está na documentação</td>
+  </tr>
+  <tr>
+    <td>CT 25 - POST usuário sem administrador</td>
+    <td>Caso de teste com objetivo de criar usuário sem administrador, com retorno de status code 400</td>
+    <td>Response: "Administrador deve ser 'true' ou 'false'"; status code: 400; PASS</td>
+    <td>Bug documental: mensagem de response não está na documentação</td>
+  </tr>
+  <tr>
+    <td>CT 26 - PUT usuário ID inválido</td>
+    <td>Caso de teste com objetivo de editar usuário com ID inválido, com retorno de status code 400</td>
+    <td>Response: "Este email já está sendo usado"; status code: 400; PASS</td>
+    <td>Bug documental: mensagem de response errada</td>
+  </tr>
+  <tr>
+    <td>CT 27 - GET todos os produtos</td>
+    <td>Caso de teste com objetivo de retornar todos os produtos, com retorno de status code 200</td>
+    <td>Response: lista de todos os produtos (nome, preço, descrição, quantidade, id); status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 28 - GET produto por ID</td>
+    <td>Caso de teste com objetivo de retornar um produto específico, com retorno de status code 200</td>
+    <td>Response: todos os dados do produto (nome, preço, descrição, quantidade, id); status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 29 - POST criar produto</td>
+    <td>Caso de teste com objetivo de criar um produto válido, com retorno de status code 200</td>
+    <td>Response: "Cadastro realizado com sucesso"; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 30 - PUT editar produto</td>
+    <td>Caso de teste com objetivo de editar um produto válido, com retorno de status code 200</td>
+    <td>Response: "Registro alterado com sucesso"; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 31 - DELETE excluir produto</td>
+    <td>Caso de teste com objetivo de excluir um produto válido, com retorno de status code 200</td>
+    <td>Response: "Registro excluído com sucesso"; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 32 - GET produto por ID incorreto</td>
+    <td>Caso de teste com objetivo de buscar um produto com ID incorreto, com retorno de status code 400</td>
+    <td>Response: "Produto não encontrado"; status code: 400; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 33 - POST produto sem autorização</td>
+    <td>Caso de teste com objetivo de criar um produto sem autorização, com retorno de status code 401</td>
+    <td>Response: "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"; status code: 401; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 34 - POST produto sem nome</td>
+    <td>Caso de teste com objetivo de criar um produto sem nome, com retorno de status code 400</td>
+    <td>Response: "Nome não pode ficar em branco"; status code: 400; PASS</td>
+    <td>Bug documental: mensagem de response não está na documentação</td>
+  </tr>
+  <tr>
+    <td>CT 35 - POST produto sem preço</td>
+    <td>Caso de teste com objetivo de criar um produto sem preço, com retorno de status code 400</td>
+    <td>Response: "Preço deve ser um número"; status code: 400; PASS</td>
+    <td>Bug documental: mensagem de response não está na documentação</td>
+  </tr>
+  <tr>
+    <td>CT 36 - POST produto sem descrição</td>
+    <td>Caso de teste com objetivo de criar um produto sem preço, com retorno de status code 400</td>
+    <td>Response: "Descrição não pode ficar em branco"; status code: 400; PASS</td>
+    <td>Bug documental: mensagem de response não está na documentação</td>
+  </tr>
+  <tr>
+    <td>CT 37 - POST produto sem quantidade</td>
+    <td>Caso de teste com objetivo de criar um produto sem preço, com retorno de status code 400</td>
+    <td>Response: "Quantidade deve ser um número"; status code: 400; PASS</td>
+    <td>Bug documental: mensagem de response não está na documentação</td>
+  </tr>
+  <tr>
+    <td>CT 38 - POST produto com quantidade inválida</td>
+    <td>Caso de teste com objetivo de criar um produto com quantidade além do limite, com retorno de status code 400</td>
+    <td>Response: "quantidade": \"quantidade\" must be a safe number - Erro number.unsafe - Abra uma issue informando essa resposta. https://github.com/ServeRest/ServeRest/issues"; status code: 400; PASS</td>
+    <td>Bug: limite não especificado</td>
+  </tr>
+  <tr>
+    <td>CT 39 - Listar IDs produtos</td>
+    <td>Caso de teste com objetivo de resetar a massa de produtos, com retorno de status code 200</td>
+    <td>Status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 40 - GET carrinhos cadastrados 200</td>
+    <td>Caso de teste com objetivo de retornar todos os carrinhos cadastrados, com retorno de status code 200</td>
+    <td>Response: lista de carrinhos; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 41 - GET carrinho por ID</td>
+    <td>Caso de teste com objetivo de retornar um carrinho específico, com retorno de status code 200</td>
+    <td>Response: todos os dados do carrinho; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 42 - POST carrinho</td>
+    <td>Caso de teste com objetivo de criar um carrinho válido, com retorno de status code 200</td>
+    <td>Response: "Cadastro realizado com sucesso"; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 43 - DELETE carrinho cancelar compra</td>
+    <td>Caso de teste com objetivo de deletar um carrinho através do cancelamento da compra, com retorno de status code 200</td>
+    <td>Response: "Registro excluído com sucesso"; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 44 - DELETE carrinho concluir compra</td>
+    <td>Caso de teste com objetivo de deletar um carrinho através da conclusão da compra, com retorno de status code 200</td>
+    <td>Response: "Registro excluído com sucesso"; status code: 200; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 45 - GET carrinho inexistente</td>
+    <td>Caso de teste com objetivo de buscar um carrinho com ID inválido, com retorno de status code 400</td>
+    <td>Response: "Carrinho não encontrado"; status code: 400; PASS</td>
+    <td>Correu como esperado</td>
+  </tr>
+  <tr>
+    <td>CT 46 - POST carrinho sem produtos</td>
+    <td>Caso de teste com objetivo de criar um carrinho sem produtos, com retorno de status code 400</td>
+    <td>Response: "Produtos não contém 1 valor obrigatório"; status code: 400; PASS</td>
+    <td>Bug documental: mensagem de response não está na documentação</td>
+  </tr>
+</table>
+
 # 🕵️ Rodando os testes no cmd<a name="cmd"></a>
 
-Para começar a rodar os testes, é importante entender uma coisa. Para que possamos ter mais controle sobre os dados que estamos enviando e recebendo, é mais interessante interagir com a ServeRest de forma local. Assim, estaremos manipulando apenas a massa de dados que nós mesmos criamos. Para que isso aconteça, abra o cmd e digite:
+Para começar a rodar os testes, é importante entender uma coisa. Para que possamos ter mais controle sobre os dados que estamos enviando e recebendo, é mais interessante interagir com a ServeRest de forma local. Assim, estaremos manipulando apenas as massas de dados que nós mesmos criamos. Para que isso aconteça, abra o cmd e digite:
 
         npx serverest
 

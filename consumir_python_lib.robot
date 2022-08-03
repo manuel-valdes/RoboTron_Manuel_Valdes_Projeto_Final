@@ -29,8 +29,8 @@ Cenario: Teste library 4
     Log To Console              ${resetar_usuarios}
 
 Cenario: Teste library 5
-    [tags]                      RESETPRODUTOS
-    Fazer Login e Armazenar Token
+    [tags]                      IDPRODUTOS
+    # Fazer Login e Armazenar Token
     ${resetar_produtos}         Resetar Massa De Produtos                   
     Log To Console              ${resetar_produtos}
 
