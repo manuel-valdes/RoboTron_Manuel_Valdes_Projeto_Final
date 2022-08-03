@@ -480,17 +480,28 @@ Antes de passar para a execução em si dos arquivos, precisamos entender um pou
 
         cd Desktop\Testes
 
-Pronto, agora estamos na pasta em que o repositório foi clonado. Mas, dentro desta pasta, existem outras duas pastas: "images" e "tests". No diretório "tests" estão localizados todos os arquivos em que foram desenvolvidos os testes, portanto, para rodar os testes, precisamos estar dentro desta pasta. Para isso, simplesmente precisamos executar o comando cd mais uma vez:
+Pronto, agora estamos na pasta em que o repositório foi clonado. Mas, dentro desta pasta, existem outras cinco pastas: "images", "keywords", "reports", "support" e "tests". No diretório "tests" estão localizados todos os arquivos em que foram desenvolvidos os testes, portanto, para rodar os testes, precisamos estar dentro desta pasta. A pasta "keywords" contém todo o desenvolvimento dos casos de teste "por trás dos panos" por assim dizer. Nela, estão todas as keywords criadas por mim para a execução deste projeto, todas elas separadas em arquivos que fazem referência a seus respectivos endpoints. Na pasta reports, é possível encontrar os relatórios dos testes e na "support" existem os arquivos de criação de massas de dados estáticas e dinâmicas, além do "common.robot", que contém algumas keywords utilizadas no escopo completo do projeto. 
 
-        cd tests
+Para rodar todos os testes de um determinado endpoint, deve-se seguir a seguinte estrutura. A primeira parte, "robot -d ./reports" indica que estamos rodando um arquivo Robot e que queremos que os relatórios (log, output e report, arquivos descritivos padrões do framework) fiquem armazenados na pasta "reports". A segunda parte indica o caminho a ser seguido a partir do diretório em que o repositório foi clonado para rodar os testes relacionados a cada um dos endpoints, cada um indicado por seu respectivo nome: 
 
-Agora sim estamos prontos para rodar os arquivos Robot. Vale ressaltar que essa execução sempre virá por meio do mesmo arquivo, o "base.robot". Cada cenário de teste recebeu uma tag, através do qual é possível especificar qual teste queremos rodar (senão, todos rodarão simultaneamente, o que não é o objetivo neste momento). O arquivo "base.robot" é o ponto principal através do qual todo o código desenvolvido em outros arquivos é centralizado. Nele, são descritos todos os cenários de teste, cada um com sua respectiva tag. Digamos que eu quero testar se é possível criar um novo usuário no endpoint /usuarios. Como a tag desse cenário de teste é POSTUSER, o comando no cmd seria o seguinte:
+        robot -d ./reports ./tests/login_tests.robot
+        robot -d ./reports ./tests/usuarios_tests.robot
+        robot -d ./reports ./tests/produtos_tests.robot
+        robot -d ./reports ./tests/carrinhos_tests.robot
 
-        robot -d ./reports -i POSTUSER base.robot
+Outra forma de rodar os testes é através de tags. Cada um dos CTs tem um tag única - no caso deste projeto, um número - que pode ser visualizada no arquivo em que o caso de teste está hospedado. Por meio dessa tag, é possível rodar um único teste, específico, de sua escolha. Nesse caso, sua estrutura muda um pouco. Adiciona-se um comando "-i NOMEDATAG":
 
-A primeira parte, "robot -d ./reports" indica que estamos rodando um arquivo Robot e que queremos que os relatórios (log, output e report, arquivos descritivos padrões do framework) fiquem armazenados na pasta "reports". A segunda parte, "-i POSTUSER", indica que queremos rodar o cenário de teste que está relacionado com a tag POSTUSER. Por fim, o arquivo "base.robot", como mencionado anteriormente, é o arquivo principal através do qual todos os testes são executados. Dentre todas as palavras envolvidas nessa estrutura, a única que muda entre execuções é a tag. De resto, a estrutura é a mesma (a não ser que você queira rodar todos os testes simultaneamente, nesse caso, execute o mesmo comando sem a parte do "-i TAG". Porém, como já comentei, isso não seria interessante no contexto dos testes desenvolvidos para este repositório).
+        robot -d ./reports -i 13 ./tests/usuarios_tests.robot
 
 # 🗺️ Mapa mental da ServeRest<a name="mapa-mental"></a>
+
+Abaixo, encontra-se um mapa mental completo da API Serverest. Por se tratar de um arquivo XMind, recomendo que se faça o download do original e que ele seja explorado no próprio software em que foi criado. Assim, é possível dar zoom e abrir os comentários relacionados a cada um dos códigos de retorno. Para fazer o download, [clique neste link](https://drive.google.com/drive/folders/13jxcINMSRNlr2am2TrL-5vF3NDSuHxCq?usp=sharing).
+
+<div align=center> 
+
+![](https://github.com/manuel-valdes/RoboTron_Manuel_Valdes_Projeto_Final/blob/develop/images/mapa_mental.png)
+
+</div>
 
 # 🔨 Ferramentas e extensões utilizadas<a name="ferramentas"></a>
 
