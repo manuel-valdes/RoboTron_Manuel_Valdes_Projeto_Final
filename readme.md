@@ -503,7 +503,7 @@ Gostaria de ressaltar que, além da aplicação do Robot Framework, como parte d
 
 # 🗺️ Mapa mental da ServeRest<a name="mapa-mental"></a>
 
-Abaixo, encontra-se um mapa mental completo da API Serverest. Por se tratar de um arquivo XMind, recomendo que se faça o download do original e que ele seja explorado no próprio software em que foi criado. Assim, é possível dar zoom e abrir os comentários relacionados a cada um dos códigos de retorno. Para fazer o download, [clique neste link](https://drive.google.com/drive/folders/13jxcINMSRNlr2am2TrL-5vF3NDSuHxCq?usp=sharing).
+Abaixo, encontra-se um mapa mental completo da API Serverest. Por se tratar de um arquivo XMind, recomendo que se faça o download do original e que ele seja explorado no próprio software em que foi criado. Assim, é possível dar zoom e abrir os comentários relacionados a cada um dos códigos de retorno. Para fazer o download, [clique neste link](https://github.com/manuel-valdes/RoboTron_Manuel_Valdes_Projeto_Final/blob/develop/mapa_mental/ServeRest.xmind).
 
 <div align=center> 
 
