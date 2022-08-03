@@ -513,6 +513,8 @@ Abaixo, encontra-se um mapa mental completo da API Serverest. Por se tratar de u
 
 # 🔨 Ferramentas e extensões utilizadas<a name="ferramentas"></a>
 
+</div>
+
 <table>
   <tr>
     <td nowrap><strong>Ferramenta</strong></td>
@@ -571,6 +573,8 @@ Abaixo, encontra-se um mapa mental completo da API Serverest. Por se tratar de u
     <td>Usado para rodar o código</td>
   </tr>
 </table>
+
+<div align=justify>
 
 # 📚 Referências<a name="referencias"></a>
 
